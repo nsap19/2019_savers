@@ -6,13 +6,16 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name','name','price','donation_value','category','detail','image']
+    list_display = ['id', 'name','price','donation_value','category','detail','image']
+    
 
 class ProductPropertyAdmin(admin.ModelAdmin):
     list_display = ['id', 'product','property','property_value']
 
 class PropertyNameAdmin(admin.ModelAdmin):
     list_display = ['id', 'property_name']
+
+
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductProperty, ProductPropertyAdmin)

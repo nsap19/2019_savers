@@ -10,6 +10,9 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=45)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         managed = False
         db_table = 'category'
@@ -17,10 +20,14 @@ class Category(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=45)
     price = models.IntegerField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey("Category", on_delete=models.CASCADE)
     detail = models.CharField(max_length=45)
     image = models.CharField(max_length=45)
     donation_value = models.IntegerField()
+    
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         managed = False
@@ -39,6 +46,9 @@ class ProductProperty(models.Model):
 
 class PropertyName(models.Model):
     property_name = models.CharField(max_length=45)
+
+    def __str__(self):
+        return self.property_name
 
     class Meta:
         managed = False

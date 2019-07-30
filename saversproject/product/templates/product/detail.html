@@ -1,0 +1,31 @@
+<h1>detail페이지 입니다.</h1>
+
+<div>
+    제품명: {{product.name}} <br>
+    제품가격: {{product.price}} <br> 
+    카테고리: {{product.category.name}} <br>
+    상품정보: {{product.detail}} <br>
+    
+    {% if product.image %}
+    이미지: <img src="{{product.image.url}}" alt="/"> <br>
+    {% endif %}
+
+    {% if grouped %}
+    {{grouped}}
+        <!-- {% for g in grouped %}
+            {{g}}
+        {% endfor %} -->
+    {% endif %}
+    
+    <!-- 상품 종류: 
+        {% for property in properties.all %}
+
+                {{property.property}}:
+                <select name="property">
+                    <option value="0">{{property_value}}</option>
+                </select> 
+        {% endfor %} -->
+        <br>
+    <a href="{% url 'product'%}">상품 목록 보기</a>
+</div>
+<br><br>

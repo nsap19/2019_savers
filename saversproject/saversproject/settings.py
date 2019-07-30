@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     #board apps 
     'board.apps.BoardConfig',
     #login apps
@@ -48,6 +49,14 @@ INSTALLED_APPS = [
     #pay apps
     'pay.apps.PayConfig',
     #main apps
+=======
+    
+    'board.apps.BoardConfig',
+    'login.apps.LoginConfig',
+    'mypage.apps.MypageConfig',
+    'pay.apps.PayConfig',
+    'product.apps.ProductConfig',
+>>>>>>> 4ec8f3a956c12972e8d4aabf116ae74b5063b867
     'main.apps.MainConfig',
 ]
 
@@ -87,8 +96,23 @@ WSGI_APPLICATION = 'saversproject.wsgi.application'
 
 DATABASES = {
     'default': {
+<<<<<<< HEAD
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+=======
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'savers',
+        # 'USER': 'root', # 데이터베이스 계정
+        # 'PASSWORD': '1234', # 계정 비밀번호
+        # 'HOST': 'localhost', # 데이테베이스 주소(IP)
+        # 'PORT': '3306', # 데이터베이스 포트(보통은 3306)     
+        'OPTIONS': {
+            'read_default_file': os.path.join(BASE_DIR, 'mysql.cnf'),
+            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"',
+        }   
+>>>>>>> 4ec8f3a956c12972e8d4aabf116ae74b5063b867
     }
 }
 
@@ -129,6 +153,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+<<<<<<< HEAD
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
@@ -138,3 +163,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+=======
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
+>>>>>>> 4ec8f3a956c12972e8d4aabf116ae74b5063b867

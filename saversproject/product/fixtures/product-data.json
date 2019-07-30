@@ -1,0 +1,122 @@
+[
+    
+    {
+    "model": "product.category",
+    "pk": 1,
+    "fields": {
+        "name": "친환경 제품"
+        }
+    },
+    {
+    "model": "product.category",
+    "pk":2,
+    "fields":{
+        "name": "다회용품"
+        }
+    },
+    {
+    "model": "product.category",
+    "pk":3,
+    "fields":{
+        "name": "소모품"
+        }
+    },
+    {
+        "model": "product.propertyname",
+        "pk":1,
+        "fields":{
+            "property_name": "길이"
+            }
+    },
+    {
+        "model": "product.propertyname",
+        "pk":2,
+        "fields":{
+            "property_name": "색깔"
+            }
+    },
+    {
+        "model": "product.propertyname",
+        "pk":3,
+        "fields":{
+            "property_name": "두께"
+            }
+    },
+    {
+        "model": "product.product",
+        "pk":1,
+        "fields":{
+            "name": "남은금액 기부하기",
+            "price": "0",
+            "category": "1",
+            "detail": "스테인레스빨대입니다",
+            "image": "/",
+            "donation_value": "0"
+            }
+    },
+    {
+        "model": "product.product",
+        "pk":2,
+        "fields":{
+            "name": "스테인레스빨대",
+            "price": "3000",
+            "category": "2",
+            "detail": "스테인레스빨대입니다",
+            "image": "/",
+            "donation_value": "300"
+            }
+    },
+    {
+        "model": "product.product",
+        "pk":3,
+        "fields":{
+            "name": "실리콘빨대",
+            "price": "2500",
+            "category": "2",
+            "detail": "실리콘빨대입니다",
+            "image": "/",
+            "donation_value": "250"
+            }
+    },
+    {
+        "model": "product.productproperty",
+        "pk":1,
+        "fields":{
+            "product": "2",
+            "property": "1",
+            "property_value": "21cm"
+            }
+    },
+    {
+        "model": "product.productproperty",
+        "pk":2,
+        "fields":{
+            "product": "2",
+            "property": "1",
+            "property_value": "24cm"
+            }
+    },
+    {
+        "model": "product.productproperty",
+        "pk":3,
+        "fields":{
+            "product": "2",
+            "property": "2",
+            "property_value": "실버"
+            }
+    },
+    {
+        "model": "product.productproperty",
+        "pk":4,
+        "fields":{
+            "product": "2",
+            "property": "2",
+            "property_value": "블랙"
+            }
+    }
+    
+    
+
+
+
+]

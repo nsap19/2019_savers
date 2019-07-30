@@ -1,5 +1,25 @@
+<<<<<<< HEAD
 {%extends 'main/layout.html'%}
 {%load staticfiles%}
 {%block content%}
 <h1>product page</h1>
 {%endblock%}
+=======
+<h1>product list</h1>
+
+{% for product in products.all %}
+<div>
+    제품명: {{product.name}} <br>
+    제품가격: {{product.price}} <br> 
+    카테고리: {{product.category.name}} <br>
+    상품정보: {{product.detail}} <br>
+    
+    {% if product.image %}
+    이미지: <img src="{{product.image.url}}" alt="/"> <br>
+    {% endif %}
+    
+    <a href="{% url 'detail' pk=product.pk %}">상품 자세히 보기</a>
+</div>
+<br><br>
+{% endfor %}
+>>>>>>> 4ec8f3a956c12972e8d4aabf116ae74b5063b867

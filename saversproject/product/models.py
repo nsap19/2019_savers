@@ -22,7 +22,7 @@ class Product(models.Model):
     price = models.IntegerField()
     category = models.ForeignKey("Category", on_delete=models.CASCADE)
     detail = models.CharField(max_length=45)
-    image = models.CharField(max_length=45)
+    image = models.ImageField(upload_to='images/',blank=True, null=True)
     donation_value = models.IntegerField()
     
 
@@ -38,6 +38,7 @@ class ProductProperty(models.Model):
     product = models.ForeignKey('Product', on_delete=models.CASCADE)
     property = models.ForeignKey('PropertyName', on_delete=models.CASCADE) #속성 종류
     property_value = models.CharField(max_length=45) #속성 값
+
 
     class Meta:
         managed = False

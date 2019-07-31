@@ -11,21 +11,21 @@
     {% endif %}
 
     {% if grouped %}
-    {{grouped}}
-        <!-- {% for g in grouped %}
-            {{g}}
-        {% endfor %} -->
+        {% for key, value in grouped.items %}
+            {{key}}: 
+            <select name="property">
+                    {% for v in value %}
+                    <option value={{v}}>
+                    {{v}}
+                    </option>
+                    {% endfor %}
+                
+            </select> 
+            
+        {% endfor %}
     {% endif %}
-    
-    <!-- 상품 종류: 
-        {% for property in properties.all %}
-
-                {{property.property}}:
-                <select name="property">
-                    <option value="0">{{property_value}}</option>
-                </select> 
-        {% endfor %} -->
         <br>
     <a href="{% url 'product'%}">상품 목록 보기</a>
+    <button>장바구니 추가하기</button>
 </div>
 <br><br>

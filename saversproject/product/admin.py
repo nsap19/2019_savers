@@ -1,8 +1,4 @@
 from django.contrib import admin
-<<<<<<< HEAD
-
-# Register your models here.
-=======
 from .models import *
 
 # Register your models here.
@@ -25,4 +21,3 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductProperty, ProductPropertyAdmin)
 admin.site.register(PropertyName, PropertyNameAdmin)
 admin.site.register(Category, CategoryAdmin)
->>>>>>> 4ec8f3a956c12972e8d4aabf116ae74b5063b867

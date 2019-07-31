@@ -1,8 +1,4 @@
 from django.contrib import admin
-<<<<<<< HEAD
-
-# Register your models here.
-=======
 # import os, sys
 # sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath('saversproject/saversproject'))))
 # sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))
@@ -28,4 +24,3 @@ admin.site.register(QABoard, QABoardAdmin)
 admin.site.register(QABoardComment, QABoardCommentAdmin)
 
 
->>>>>>> 4ec8f3a956c12972e8d4aabf116ae74b5063b867

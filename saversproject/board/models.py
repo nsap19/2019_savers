@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-from django.db import models
-
-# Create your models here.
-=======
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
@@ -42,4 +37,3 @@ class QABoardComment(models.Model):
         db_table = 'q&a_board_comment'
 
 
->>>>>>> 4ec8f3a956c12972e8d4aabf116ae74b5063b867

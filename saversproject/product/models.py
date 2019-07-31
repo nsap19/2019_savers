@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-from django.db import models
-
-# Create your models here.
-=======
 # This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
@@ -44,7 +39,6 @@ class ProductProperty(models.Model):
     property = models.ForeignKey('PropertyName', on_delete=models.CASCADE) #속성 종류
     property_value = models.CharField(max_length=45) #속성 값
 
-
     class Meta:
         managed = False
         db_table = 'product_property'
@@ -61,4 +55,3 @@ class PropertyName(models.Model):
         db_table = 'property_name'
 
 
->>>>>>> 4ec8f3a956c12972e8d4aabf116ae74b5063b867

@@ -1,8 +1,4 @@
 from django.contrib import admin
-<<<<<<< HEAD
-
-# Register your models here.
-=======
 from .models import *
 
 class UserOrderAdmin(admin.ModelAdmin):
@@ -22,4 +18,3 @@ admin.site.register(UserOrder, UserOrderAdmin)
 admin.site.register(Basket, BasketAdmin)
 admin.site.register(Donation, DonationAdmin)
 admin.site.register(OrderStatus, OrderStatusAdmin)
->>>>>>> 4ec8f3a956c12972e8d4aabf116ae74b5063b867

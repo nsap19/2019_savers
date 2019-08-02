@@ -11,6 +11,5 @@ urlpatterns = [
     path('mydetail/',views.mydetail,name="mydetail"),
     # path('<int:p_id>/basket', views.basket, name="basket"), 
     path('basket/<int:pk>', views.basket, name="basket"), 
-
 ]
 

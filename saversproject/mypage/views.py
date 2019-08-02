@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render, redirect
 from product.models import *
 from .models import *
 from login.models import *
@@ -21,6 +21,10 @@ def basket(request,pk):
         basket.product = Product(pk)
         basket.status = 0
         basket.save()
+        # return redirect('basket', pk=pk)
+
+        products = Product.objects
+        baskets = Basket.objects
 
 
-        return render(request, 'mypage/basket.html')
+        return render(request, 'mypage/basket.html', {'products':products, 'baskets':baskets})

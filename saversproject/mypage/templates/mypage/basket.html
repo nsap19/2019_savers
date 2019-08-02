@@ -3,5 +3,14 @@
 {%block content%}
 
 <h1>shopping cart</h1>
+{% for basket in baskets.all %}
+    {% if basket.user.id == 1 %}
+        {% for product in products.all %}
+        <div>
+        {{basket.product}}
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endfor %}
 
 {%endblock%}

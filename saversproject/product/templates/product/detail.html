@@ -26,6 +26,7 @@
     {% endif %}
         <br>
     <a href="{% url 'product'%}">상품 목록 보기</a>
-    <button>장바구니 추가하기</button>
-</div>
+    <form action="{% url 'basket' pk=product.pk %}">{% csrf_token %}
+        <input type="submit" value="장바구니에 추가하기">
+    </form></div>
 <br><br>

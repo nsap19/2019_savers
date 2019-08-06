@@ -13,3 +13,12 @@
     width: 1000px;
     margin: auto;
 }
+
+input[type="submit"] {
+    font-family: FontAwesome;
+}
+
+input{
+    background-color: white;
+    border: 0;
+}

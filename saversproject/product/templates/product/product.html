@@ -5,60 +5,51 @@
         <div class="portfolio-area ptb-90">
             <div class="container_product">
                 <div class="row">
+                    {% for product in products.all %}
                     <div class="col-md-3 col-sm-6">
                         <!-- 카드1 -->
                         <div class="single-service white-bg text-center">
-                            <img src="{%static 'main/img/s.jpg'%}">
-                                <h3>Web Design</h3>
-                                <p>Uaerat litora, taciti quaerat dolor ligula laoreet omnis aut scelerisque ex
-                                    fuga platea eveniet pulvinar praesent
-                                </p>
-
-                                <a href="#" data-toggle="modal" data-target="#exampleModal">
-                                    <i class="fa fa-shopping-basket" style='font-size:25px; padding-top: 4px;'></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-sm-6">
-                            <!-- 카드2 -->
-                            <div class="single-service white-bg text-center">
-                                <img src="{%static 'main/img/s.jpg'%}">
-                                    <h3>Web Design</h3>
-                                    <p>Uaerat litora, taciti quaerat dolor ligula laoreet omnis aut scelerisque ex
-                                        fuga platea eveniet pulvinar praesent
+                                {% if product.image %}
+                                    <img src="{{product.image.url}}" alt="/"> <br>
+                                {% endif %}
+                                <h3>{{product.name}}</h3>
+                                {% if product.id != 1 %}
+                                    <h5>{{product.price}}</h5>
+                                    <p>
+                                    카테고리: {{product.category.name}} <br>
+                                {% endif %}
+                                    상품정보: {{product.detail}} <br>
+                                {% if product.id != 1 %}
+                                    <a href="{% url 'detail' pk=product.pk %}">상품 자세히 보기</a>
                                     </p>
-                                    
-                                <a href="#" data-toggle="modal" data-target="#exampleModal">
-                                    <i class="fa fa-shopping-basket" style='font-size:25px; padding-top: 4px;'></i>
-                                </a>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-sm-6">
-                                <!-- 카드3 -->
-                                <div class="single-service white-bg text-center">
-                                    <img src="{%static 'main/img/s.jpg'%}">
-                                        <h3>Development
-                                        </h3>
-                                        <p>Uaerat litora, taciti quaerat dolor ligula laoreet omnis aut scelerisque ex
-                                            fuga platea eveniet pulvinar praesent
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <!-- 카드4 -->
-                                    <div class="single-service white-bg text-center">
-                                        <img src="{%static 'main/img/s.jpg'%}">
-                                            <h3>Photography</h3>
-                                            <p>Uaerat litora, taciti quaerat dolor ligula laoreet omnis aut scelerisque ex
-                                                fuga platea eveniet pulvinar praesent
-                                            </p>
-                                        </div>
-                                    </div>
+                                {% endif %}
 
-                                </div>
-                            </div>
+                                <!-- case1 -->
+                                <!-- <a href="#" data-toggle="modal" data-target="#exampleModal">
+                                <form action="{% url 'addbasket' pk=product.pk %}">
+                                        <input type="submit" class="search" value="&#xf291;" /> </i>
+                                </form>
+                                </a> -->
+
+                                <!-- case2 -->
+                                <a href="{% url 'addbasket' pk=product.pk %}" data-toggle="modal" data-target="#exampleModal">
+                                        <i class="fa fa-shopping-basket" style='font-size:25px; padding-top: 4px;'></i>
+                                </a>
+
+                                <!-- case3 -->
+                                <!-- <form action="{% url 'addbasket' pk=product.pk %}">
+                                 <a href="#" data-toggle="modal" data-target="#exampleModal">
+                                    <input type="submit" class="search" value="&#xf291;" /> </i>
+                                </a>
+                                </form> -->
+                                        
+                                        
                         </div>
                     </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
 
                     <!-- Modal -->
                     <div
@@ -88,3 +79,28 @@
                             </div>
 
                             {%endblock%}
+
+<h1>product list</h1>
+
+{% for product in products.all %}
+    <div>
+        제품명: {{product.name}} <br>
+        제품가격: {{product.price}} <br> 
+        {% if product.id != 1 %}
+            카테고리: {{product.category.name}} <br>
+            상품정보: {{product.detail}} <br>
+        
+            {% if product.image %}
+            이미지: <img src="{{product.image.url}}" alt="/"> <br>
+            {% endif %}
+        
+        
+        <a href="{% url 'detail' pk=product.pk %}">상품 자세히 보기</a>
+        {% endif %}
+        <form action="{% url 'addbasket' pk=product.pk %}">
+            <input type="submit" value="장바구니에 추가하기">
+        </form>
+        
+    </div>
+    <br><br>
+{% endfor %}

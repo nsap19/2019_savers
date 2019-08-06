@@ -1,5 +1,24 @@
 from django.shortcuts import get_object_or_404, render, redirect
+from .models import *
 
 # Create your views here.
 def product(request):
-        return render(request,'product/product.html')
+    products = Product.objects
+    properties = ProductProperty.objects
+    # current_user_pk = request.user.id
+
+    return render(request, 'product/product.html', {'products':products, 'properties':properties})
+
+    
+def detail(request, pk):
+    product = Product.objects.get(pk=pk)
+    properties = ProductProperty.objects.filter(product_id=pk)
+    propertynames = PropertyName.objects
+    grouped = dict() 
+    for obj in properties.all():
+        # grouped.setdefault(obj.property, []).append([obj.property_value, obj.product.id])
+        pname = obj.property.property_name
+        grouped.setdefault(pname, []).append(obj.property_value)
+    # current_user_pk = request.user.id
+    return render(request, 'product/detail.html',{'product':product, 'properties':properties, 'grouped': grouped})
+

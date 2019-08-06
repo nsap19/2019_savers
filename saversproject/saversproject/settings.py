@@ -87,8 +87,18 @@ WSGI_APPLICATION = 'saversproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'savers',
+        # 'USER': 'root', # 데이터베이스 계정
+        # 'PASSWORD': '1234', # 계정 비밀번호
+        # 'HOST': 'localhost', # 데이테베이스 주소(IP)
+        # 'PORT': '3306', # 데이터베이스 포트(보통은 3306)     
+        'OPTIONS': {
+            'read_default_file': os.path.join(BASE_DIR, 'mysql.cnf'),
+            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"',
+        }   
     }
 }
 
@@ -129,12 +139,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'main','static'),
-]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'

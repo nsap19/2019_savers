@@ -22,6 +22,7 @@
                                             </tr>
                                         </thead>
                                         <!-- 주문 목록 시작 -->
+                                        {% for basket in u_basket.all %}
                                         <tbody>
                                             <tr>
                                                 <!-- 주문일자 -->
@@ -29,16 +30,17 @@
                                                 <td>
                                                     <input type="checkbox" aria-label="Checkbox for following text input"></td>
                                                     <td>
-                                                        <img src="{%static 'main/img/s.jpg'%}"></td>
+                                                        <img src="{{basket.product.image.url}}"></td>
                                                         <!-- 제품정보 -->
                                                         <td>
-                                                            <strong>옥수수빨대
+                                                            <strong>{{basket.product.name}}
+
                                                                 <br>[옵션:5m]</strong>
                                                                 <br> <a class="option_button" href="#"><strong> 옵션변경</strong></a>
                                                             </td>
                                                             <!-- 제품수량 -->
                                                             <td>
-                                                                <strong>3개</strong>
+                                                                <strong>{{basket.quantity}}                                                                </strong>
                                                                 <br> <a class="option_button" id="o_move" href="#"><strong> 수량변경</strong></a>
                                                             </td>
                                                             <td>
@@ -48,6 +50,8 @@
                                                             </td>
                                                         </tr>
                                                     </tbody>
+                                                    {% endfor %}
+
                                                     <!-- 주문목록끝 -->
 
                                                 </table>
@@ -62,3 +66,5 @@
                     </div>
 
                     {%endblock%}
+
+

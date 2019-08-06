@@ -1,0 +1,33 @@
+<h1>detail페이지 입니다.</h1>
+
+<div>
+    제품명: {{product.name}} <br>
+    제품가격: {{product.price}} <br> 
+    카테고리: {{product.category.name}} <br>
+    상품정보: {{product.detail}} <br>
+    
+    {% if product.image %}
+    이미지: <img src="{{product.image.url}}" alt="/"> <br>
+    {% endif %}
+
+    {% if grouped %}
+        {% for key, value in grouped.items %}
+            {{key}}: 
+            <select name="property">
+                    {% for v in value %}
+                    <option value={{v}}>
+                    {{v}}
+                    </option>
+                    {% endfor %}
+                
+            </select> 
+            
+        {% endfor %}
+    {% endif %}
+        <br>
+    <a href="{% url 'product'%}">상품 목록 보기</a>
+    <form action="{% url 'addbasket' pk=product.pk %}">
+        <input type="submit" value="장바구니에 추가하기">
+    </form>
+</div>
+<br><br>

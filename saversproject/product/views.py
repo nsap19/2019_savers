@@ -5,7 +5,7 @@ from .models import *
 def product(request):
     products = Product.objects
     properties = ProductProperty.objects
-    current_user_pk = request.user.id
+    # current_user_pk = request.user.id
 
     return render(request, 'product/product.html', {'products':products, 'properties':properties})
 

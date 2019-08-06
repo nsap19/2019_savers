@@ -10,6 +10,7 @@ urlpatterns = [
     path('',views.mypage,name="mypage"),
     path('mydetail/',views.mydetail,name="mydetail"),
     # path('<int:p_id>/basket', views.basket, name="basket"), 
-    path('basket/<int:pk>', views.basket, name="basket"), 
+    path('basket/<int:pk>/add', views.addbasket, name="addbasket"), 
+    path('basket', views.basket, name = 'basket'),
 ]
 

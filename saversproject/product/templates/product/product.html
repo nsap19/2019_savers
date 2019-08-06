@@ -19,7 +19,7 @@
         
         <a href="{% url 'detail' pk=product.pk %}">상품 자세히 보기</a>
         {% endif %}
-        <form action="{% url 'basket' pk=product.pk %}">{% csrf_token %}
+        <form action="{% url 'addbasket' pk=product.pk %}">
             <input type="submit" value="장바구니에 추가하기">
         </form>
         

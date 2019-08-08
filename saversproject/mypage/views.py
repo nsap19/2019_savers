@@ -30,7 +30,7 @@ def addbasket(request,pk):
                 basket.quantity =1
                 
                 basket.save()
-        return redirect('/product')
+        return redirect('/mypage/basket')
 
 def basket(request): #사용자 id를 pk로 넘기는것 나중에 추가
         products = Product.objects

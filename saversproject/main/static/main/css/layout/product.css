@@ -17,7 +17,18 @@ img{
     margin: auto;
 }
 
+<<<<<<< HEAD
 input{
     background-color: white;
     border: 0;
 }
+=======
+input[type="submit"] {
+    font-family: FontAwesome;
+}
+
+input{
+    background-color: white;
+    border: 0;
+}
+>>>>>>> origin/master

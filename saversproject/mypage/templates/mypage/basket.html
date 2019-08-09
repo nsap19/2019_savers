@@ -24,6 +24,7 @@
                                             </tr>
                                         </thead>
                                         <!-- 주문 목록 시작 -->
+                                        {% for basket in u_basket.all %}
                                         <tbody>
                                             <tr>
                                                 <!-- 주문일자 -->
@@ -31,29 +32,29 @@
                                                 <td>
                                                     <input type="checkbox" aria-label="Checkbox for following text input"></td>
                                                     <td>
-                                                        <img src="{%static 'main/img/s.jpg'%}"></td>
+                                                        <img src="{{basket.product.image.url}}"></td>
                                                         <!-- 제품정보 -->
                                                         <td>
-                                                            <strong>옥수수빨대
+                                                            <strong>{{basket.product.name}}
+
                                                                 <br>[옵션:5m]</strong>
+                                                                <br> <a class="option_button" href="#"><strong> 옵션변경</strong></a>
+                                                            </td>
+                                                            <!-- 제품수량 -->
+                                                            <td>
+                                                                <strong>{{basket.quantity}}                                                                </strong>
+                                                                <br> <a class="option_button" id="o_move" href="#"><strong> 수량변경</strong></a>
+                                                            </td>
+                                                            <td>
+                                                                <a class="option_button"  href="{%url 'pay'%}"><strong> 주문하기</strong></a>
                                                                 <br>
-                                                                    <a class="option_button" href="#">
-                                                                        <strong>
-                                                                            옵션변경</strong>
-                                                                    </a>
-                                                                </td>
-                                                                <!-- 제품수량 -->
-                                                                <td id="test">1</td>
-                                                                <td>
-                                                                    <!-- <input type="button" class="search" value="&#xf151;" onclick="test()"/> -->
-                                                                    <a href="#">
-                                                                        <i class="fa fa-caret-square-o-up" style='font-size:20px;' onclick="test()"></i>
-                                                                    </a>
-                                                                    <br>
-                                                                        <br>
-                                                                            <a href="#">
-                                                                                <i class="fa fa-caret-square-o-down" style='font-size:20px;' onclick="test2()"></i>
-                                                                            </a>
+                                                                <a class="option_button" href="#"><strong> 삭제</strong></a>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                    {% endfor %}
+
+                                                    <!-- 주문목록끝 -->
 
                                                                         </td>
                                                                         <td>000원</td>

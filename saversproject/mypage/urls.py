@@ -4,10 +4,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 
+# app_name = "mypage_app"
+
 urlpatterns = [
     path('',views.mypage,name="mypage"),
     path('mydetail/',views.mydetail,name="mydetail"),
-    path('bakset/',views.basket,name="basket"),
     path('order/',views.order,name="order"),
+    # path('<int:p_id>/basket', views.basket, name="basket"), 
+    path('basket/<int:pk>/add', views.addbasket, name="addbasket"), 
+    path('basket', views.basket, name = 'basket'),
 ]
 

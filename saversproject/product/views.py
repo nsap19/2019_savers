@@ -10,7 +10,8 @@ def product(request):
     for obj in properties.all():
         pname = obj.property.property_name
         pid = obj.product_id
-        grouped.setdefault(pname, []).append([obj.property_value, pid])
+        # if grouped[0][1]
+        grouped.setdefault(pname, []).append([pid,obj.property_value])
 
     # for obj in properties.all():
     #     pid = obj.product_id

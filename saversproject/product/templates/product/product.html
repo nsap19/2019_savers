@@ -31,24 +31,24 @@
                                     {% if grouped %}  <br>
                                     <!-- {{grouped.items}} <br> -->
                                     <!-- {{grouped2.items}} <br> -->
-                
+                                    {{grouped}}
                                         {% for key, value in grouped.items %}
                                         <!-- {{ value }} -->
-                                        {% with i=grouped.forloop.counter0 %}
-                                        {{i}}
-                                            {% if product.id == value.i.1 %}
+                                            {{key}}:
+
+                                            {% for v1, v2 in value %}
+                                                {% if product.id == v2 %}
                                                 <br>
-                                                {{key}}:
                                                 <select name="property">
-                                                        {% for v1, v2 in value %}
+                                                    
                                                             <option value={{v}}>
                                                             {{v1}}
                                                             </option>
-                                                        {% endfor %}
                                                 
                                                 </select>
                                                 {% endif %}
-                                        {% endwith %}
+                                            {% endfor %}
+   
                                         {% endfor %}
                                     {% endif %}                                                        
 

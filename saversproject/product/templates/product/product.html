@@ -61,6 +61,29 @@
                                     
                                     {% endif %}
                                     {% endfor %} -->
+                                    {% if grouped %}  <br>
+                                    <!-- {{grouped.items}} <br> -->
+                                    <!-- {{grouped2.items}} <br> -->
+                                    {{grouped}}
+                                        {% for key, value in grouped.items %}
+                                        <!-- {{ value }} -->
+                                            {{key}}:
+
+                                            {% for v1, v2 in value %}
+                                                {% if product.id == v2 %}
+                                                <br>
+                                                <select name="property">
+                                                    
+                                                            <option value={{v}}>
+                                                            {{v1}}
+                                                            </option>
+                                                
+                                                </select>
+                                                {% endif %}
+                                            {% endfor %}
+   
+                                        {% endfor %}
+                                    {% endif %}                                                        
 
 
                                     

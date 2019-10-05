@@ -15,11 +15,16 @@ def product(request):
     for obj in properties:
         pname = obj.property.property_name
         pid = obj.product_id
+<<<<<<< HEAD
         pvalue = obj.property_value
         
         grouped2.setdefault(pname, []).append(pvalue)
         grouped.setdefault(pid, []).append(grouped2)
 # {'길이': [['21cm', 2], ['24cm', 2], ['23cm', 3], ['26cm', 3]], '색깔': [['실버', 2], ['블랙', 2]]}
+=======
+        # if grouped[0][1]
+        grouped.setdefault(pname, []).append([pid,obj.property_value])
+>>>>>>> 854fd822d37a4a4c012750cd72fc8b1ed08e9b0f
 
 
     # for obj in properties: 

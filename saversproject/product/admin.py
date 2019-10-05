@@ -21,3 +21,4 @@ admin.site.register(Product, ProductAdmin)
 admin.site.register(ProductProperty, ProductPropertyAdmin)
 admin.site.register(PropertyName, PropertyNameAdmin)
 admin.site.register(Category, CategoryAdmin)
+#admin/admin123

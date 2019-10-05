@@ -1,28 +1,43 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from .models import *
 
+
 # Create your views here.
+#원하는 결과
+# {'2':['길이':['21cm','24cm'],['색깔':['실버','블랙']]], '3':['길이':['23cm', '26cm']]}
 def product(request):
-    products = Product.objects
-    properties = ProductProperty.objects
-    propertynames = PropertyName.objects
-    grouped = dict() 
-    for obj in properties.all():
+    products = Product.objects.all()
+    properties = ProductProperty.objects.all()
+    propertynames = PropertyName.objects.all()
+    grouped = dict()
+    grouped2 = dict() 
+    
+    for obj in properties:
         pname = obj.property.property_name
         pid = obj.product_id
-        grouped.setdefault(pname, []).append([obj.property_value, pid])
+        pvalue = obj.property_value
+        
+        grouped2.setdefault(pname, []).append(pvalue)
+        grouped.setdefault(pid, []).append(grouped2)
+# {'길이': [['21cm', 2], ['24cm', 2], ['23cm', 3], ['26cm', 3]], '색깔': [['실버', 2], ['블랙', 2]]}
 
-    # for obj in properties.all():
+
+    # for obj in properties: 
     #     pid = obj.product_id
     #     pname = obj.property.property_name
-    #     grouped.setdefault(pname, []).append(pid)
-    # for key, value in grouped.items():
+    #     grouped.setdefault(pid, []).append(pname)
+        
     #     pname = obj.property.property_name
     #     p = obj.property_value
     #     grouped2.setdefault(pname, []).append(p)
-    #     for k,val in grouped2.items():
-    #         if key == k:
-    #             grouped[key].append(val)
+    #     # grouped2.setdefault(pname, []).append([p, pid])
+
+    # for key, value in grouped.items(): #key= 물품id, value=속성이름    
+    #     for k,val in grouped2.items(): #k=속성이름, val=속성 값,id
+    #         if value == k:
+    #             grouped[key][value].append(val[1])
+    # {'길이': [2, 2, 3, 3, ['21cm', '24cm', '23cm', '26cm']], '색깔': [2, 2, ['실버', '블랙']]}
+
                 
 
     # scorecard = {}
@@ -36,7 +51,7 @@ def product(request):
     # current_user_pk = request.user.id
     
 
-    return render(request, 'product/product.html', {'products':products, 'properties':properties, 'grouped': grouped })
+    return render(request, 'product/product.html', {'products':products, 'properties':properties, 'propertynames':propertynames, 'grouped': grouped , 'grouped2': grouped2 })
 
     
 def detail(request, pk):

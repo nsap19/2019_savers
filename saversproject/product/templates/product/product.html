@@ -5,7 +5,9 @@
         <div class="portfolio-area ptb-90">
             <div class="container_product">
                 <div class="row">
-                    {% for product in products.all %}
+                   {% for product in products.all %}
+
+
                     <div class="col-md-3 col-sm-6">
                         <!-- 카드 -->
                         <div class="single-service white-bg text-center">
@@ -24,33 +26,41 @@
                                     </p>
                                 {% endif %}
 
+                                    {{properties.product}}
+                                <br>
+                                <!-- {{grouped}} -->
+                                <br>
+                                
+                                <!-- {{grouped2}} -->
                                 <!-- case1 -->
                                 <!-- <a href="#" data-toggle="modal" data-target="#exampleModal"> -->
 
                                     <!-- 상품별 카테고리 뽑아내기 -->
-                                    {% if grouped %}  <br>
-                                    <!-- {{grouped.items}} <br> -->
-                                    <!-- {{grouped2.items}} <br> -->
-                
-                                        {% for key, value in grouped.items %}
-                                        <!-- {{ value }} -->
-                                        {% with i=grouped.forloop.counter0 %}
-                                        {{i}}
-                                            {% if product.id == value.i.1 %}
-                                                <br>
+                                    <!-- {% if grouped %}  <br> -->
+                                        <!-- {% for key, value in grouped.items %}
+                                            {% if product.id == value.0.1 %}
+                                            
                                                 {{key}}:
-                                                <select name="property">
+                                                    <select name="property">
                                                         {% for v1, v2 in value %}
-                                                            <option value={{v}}>
-                                                            {{v1}}
-                                                            </option>
-                                                        {% endfor %}
-                                                
-                                                </select>
-                                                {% endif %}
-                                        {% endwith %}
-                                        {% endfor %}
-                                    {% endif %}                                                        
+                                                        <br>
+                                                                <option value={{v}}>
+                                                                {{v1}}
+                                                                </option>
+                                                    
+                                                        {% endfor %}    
+                                                    </select>
+                                                    
+                                            {% endif %}
+                                        {% endfor %}                                            
+                                    {% endif %} -->
+
+                                    <!-- {% for property in properties %}
+                                    {% if product.id == property.product.id %}
+                                    {{property.product.id}}: {{property.property}} : {{property.property_value}} <br>
+                                    
+                                    {% endif %}
+                                    {% endfor %} -->
 
 
                                     
@@ -79,6 +89,7 @@
                         </div>
                     </div>
                     {% endfor %}
+                    
                </div>
             </div>
         </div>
@@ -114,7 +125,6 @@
                             {%endblock%}
 
 <!-- <h1>product list</h1>
-
 {% for product in products.all %}
     <div>
         제품명: {{product.name}} <br>

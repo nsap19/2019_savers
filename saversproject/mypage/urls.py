@@ -13,5 +13,7 @@ urlpatterns = [
     # path('<int:p_id>/basket', views.basket, name="basket"), 
     path('basket/<int:pk>/add', views.addbasket, name="addbasket"), 
     path('basket', views.basket, name = 'basket'),
+    path('basket/amountupdate/<int:pk>',views.update_amount, name = 'amountupdate'),
+    path('basket/deletebasket/<int:pk>', views.delete_basket, name = 'deletebasket'),
 ]
 

@@ -1,111 +1,112 @@
 {%extends 'main/layout.html'%}
 {%load staticfiles%}
 {%block content%}
-    <link rel="stylesheet" href="{%static 'main/css/layout/mypage.css'%}">
-        <!-- mypage 시작-->
-        <div class="mypage">
-            <section id="gtco-welcome" class="bg-white section-padding">
-                <div class="container_mypage">
-                    <div class="section-content">
-                        <div class="row">
-                            <div class="pl-lg-5 ml-md-5">
-                                <div class="container_mypage2">
-                                    <h2 class="mydetail_h2">장바구니</h2>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col" width="5%">체크</th>
-                                                <th scope="col" width="25%">이미지</th>
-                                                <th scope="col" width="15%">상품정보</th>
-                                                <th scope="col" width="7%">수량</th>
-                                                <th scope="col" width="10%"></th>
-                                                <th scope="col" width="13%">가격</th>
-                                                <th scope="col" width="25%">선택</th>
-                                            </tr>
-                                        </thead>
-                                        <!-- 주문 목록 시작 -->
-                                        {% for basket in u_basket.all %}
-                                        <tbody>
-                                            <tr>
-                                                <!-- 주문일자 -->
-                                                <!-- 제품이미지 -->
-                                                <td>
-                                                    <input type="checkbox" aria-label="Checkbox for following text input"></td>
-                                                    <td>
-                                                        <img src="{{basket.product.image.url}}"></td>
-                                                        <!-- 제품정보 -->
-                                                        <td>
-                                                            <strong>{{basket.product.name}}
+<link rel="stylesheet" href="{%static 'main/css/layout/mypage.css'%}">
+<!-- mypage 시작-->
+<div class="mypage">
+    <section id="gtco-welcome" class="bg-white section-padding">
+        <div class="container_mypage">
+            <div class="section-content">
+                <div class="row">
+                    <div class="pl-lg-5 ml-md-5">
+                        <div class="container_mypage2">
+                            <h2 class="mydetail_h2">장바구니</h2>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" width="5%">체크</th>
+                                        <th scope="col" width="25%">이미지</th>
+                                        <th scope="col" width="15%">상품정보</th>
+                                        <th scope="col" width="7%">수량</th>
+                                        <th scope="col" width="13%">가격</th>
+                                        <th scope="col" width="10%"></th>
+                                    </tr>
+                                </thead>
+                                <!-- 주문 목록 시작 -->
+                                {% for basket in u_basket.all %}
+                                <tbody>
+                                    <tr>
+                                        <!-- 주문일자 -->
+                                        <!-- 제품이미지 -->
+                                        <td>
+                                            <input type="checkbox" aria-label="Checkbox for following text input"></td>
+                                        <td>
+                                            <img src="{{basket.product.image.url}}"></td>
+                                        <!-- 제품정보 -->
+                                        <td>
+                                            <strong>{{basket.product.name}}
 
-                                                                <br>[옵션:5m]</strong>
-                                                                <br> <a class="option_button" href="#"><strong> 옵션변경</strong></a>
-                                                            </td>
-                                                            <!-- 제품수량 -->
-                                                            <td>
-                                                                <strong>{{basket.quantity}}                                                                </strong>
-                                                                <br> <a class="option_button" id="o_move" href="#"><strong> 수량변경</strong></a>
-                                                            </td>
-                                                            <td>
-                                                                <a class="option_button"  href="{%url 'pay'%}"><strong> 주문하기</strong></a>
-                                                                <br>
-                                                                <a class="option_button" href="#"><strong> 삭제</strong></a>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                    {% endfor %}
+                                                <br>[옵션:23cm]</strong>
+                                            <br> <a class="option_button" href="#"><strong> 옵션변경</strong></a>
+                                        </td>
+                                        <!-- 제품수량 -->
+                                        <td>
+                                            <form action="{%url 'amountupdate' pk=basket.product.pk %}">
+                                                <input type="text" name="quantity" placeholder={{basket.quantity}}>
+                                                <input type="submit" class="option_button" value="수량변경">
+                                            </form>
+                                        </td>
+                                         <td>
+                                            {{basket.product.price}} * {{basket.quantity}}
+                                        </td>
+                                        <td>
+                                            <br>
+                                            <a class="option_button"
+                                                href="{%url 'deletebasket' pk=basket.product.pk %}"><strong>
+                                                    삭제</strong></a>
+                                        </td>
+                                       
+                                    </tr>
+                                </tbody>
+                                {% endfor %}
 
-                                                    <!-- 주문목록끝 -->
+                                <!-- 주문목록끝 -->
 
-                                                                        </td>
-                                                                        <td>000원</td>
-                                                                        <td>
-                                                                            <a class="btn btn-warning" href="{%url 'pay'%}">
-                                                                                <strong>
-                                                                                    주문하기</strong>
-                                                                            </a>
-                                                                            <br>
-                                                                                <br>
-                                                                                    <a class="btn btn-warning" href="#">
-                                                                                        <strong>
-                                                                                            삭제</strong>
-                                                                                    </a>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                        <!-- 주문목록끝 -->
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <!-- 주문목록끝 -->
 
-                                                                    </table>
+                            </table>
 
-                                                                    <a
-                                                                        class="option_button"
-                                                                        style="width:8em; margin-left: 51em;"
-                                                                        href="{%url 'order'%}">
-                                                                        <strong>
-                                                                            전체상품주문</strong>
-                                                                    </a>
-                                                                    <a class="option_button" style="width:8em;" href="{%url 'order'%}">
-                                                                        <strong>
-                                                                            선택상품주문</strong>
-                                                                    </a>
+                            <a class="option_button" style="width:8em; margin-left: 2em;" href="{%url 'order'%}">
+                                    <strong>
+                                        전체상품삭제</strong>
+                                </a>
+                                <a class="option_button" style="width:8em;" href="{%url 'order'%}">
+                                    <strong>
+                                        선택상품삭제</strong>
+                                </a>
 
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </section>
-                                        </div>
+                            <a class="option_button" style="width:8em; margin-left: 33em;" href="{%url 'order'%}">
+                                <strong>
+                                    전체상품주문</strong>
+                            </a>
+                            <a class="option_button" style="width:8em;" href="{%url 'order'%}">
+                                <strong>
+                                    선택상품주문</strong>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
-                                        <script type="text/javascript">
-                                            function test() {
-                                                var td = document.getElementById("test");
-                                                var n = Number(td.innerHTML);
-                                                td.innerHTML = n + 1;
-                                            }
-                                            function test2() {
-                                                var td = document.getElementById("test");
-                                                var n = Number(td.innerHTML);
-                                                td.innerHTML = n - 1;
-                                            }
-                                        </script>
-                                        {%endblock%}
+<script type="text/javascript">
+    function test() {
+        var td = document.getElementById("test");
+        var n = Number(td.innerHTML);
+        td.innerHTML = n + 1;
+    }
+    function test2() {
+        var td = document.getElementById("test");
+        var n = Number(td.innerHTML);
+        td.innerHTML = n - 1;
+    }
+</script>
+{%endblock%}

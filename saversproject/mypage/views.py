@@ -39,7 +39,45 @@ def basket(request): #사용자 id를 pk로 넘기는것 나중에 추가
         baskets = Basket.objects.all()
         u_basket = baskets.filter(user_id=1)
 
-
         return render(request, 'mypage/basket.html', {'products':products, 'baskets':baskets, 'u_basket':u_basket})
 
+def update_amount(request,pk):
+        products = Product.objects
+        baskets = Basket.objects.all()
+        u_basket = baskets.filter(user_id=1)
 
+        b = u_basket.get(product_id=pk)
+        b.quantity = request.GET['quantity']
+        b.save()
+        
+        return redirect('/mypage/basket')
+
+def delete_basket(request, pk):
+        products = Product.objects
+        baskets = Basket.objects.all()
+        u_basket = baskets.filter(user_id=1)
+
+        b = u_basket.get(product_id=pk)
+        b.delete()
+
+        return redirect('/mypage/basket')
+
+def order_all(request):
+        products = Product.objects
+        baskets = Basket.objects.all()
+        u_basket = baskets.filter(user_id=1)
+        user_order = UserOrder.objects
+
+        for b in u_basket:
+                b.status = 1
+                b.save()
+
+        order = UserOrder()
+        # user = User(1)
+        order.user = User(1)
+        order.ordered_product = Product(pk)
+        order.amount = 0
+        order.order_status =1
+                
+        order.save()
+        

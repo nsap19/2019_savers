@@ -10,18 +10,29 @@
     이미지: <img src="{{product.image.url}}" alt="/"> <br>
     {% endif %}
 
-    {% if grouped %}{{grouped.items}}
-        {% for key, value in grouped.items %}
-            {{key}}: 
-            <select name="property">
-                    {% for v in value%}
-                    <option value={{v}}>
-                    {{v}}
-                    </option>     
-                    {% endfor %}               
-            </select> 
-        {% endfor %} 
-    {% endif %}
+    {% regroup properties.all by product as property_list %}
+
+                    <ul>
+                        {% for property in property_list %}
+                        {% if property.grouper.id == product.id %}
+
+                            {% regroup property.list by property as p_list %}
+                            <ul>
+                                {% for p in p_list %}
+                                <li> {{ p.grouper }}</li>
+                                <select name="property">
+                                    {% for p1 in p.list %}
+                                    <option value={{p1.property_value}}>
+                                        {{ p1.property_value }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                                {% endfor %}
+                            </ul>
+
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
         <br>
     <a href="{% url 'product'%}">상품 목록 보기</a>
     <form action="{% url 'addbasket' pk=product.pk %}">

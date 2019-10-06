@@ -2,5 +2,5 @@
 database = savers
 host = localhost
 user = root
-password = 1234
+password = gPals0419
 default-character-set = utf8

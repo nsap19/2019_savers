@@ -23,6 +23,8 @@
                                     </tr>
                                 </thead>
                                 <!-- 주문 목록 시작 -->
+                                
+                                {% if u_basket.all %}
                                 {% for basket in u_basket.all %}
                                 <tbody>
                                     <tr>
@@ -31,13 +33,12 @@
                                         <td>
                                             <input type="checkbox" aria-label="Checkbox for following text input"></td>
                                         <td>
-                                            <img src="{{basket.product.image.url}}"></td>
+                                            <a href="{% url 'detail' pk=basket.product.id %}"><img src="{{basket.product.image.url}}"></a></td>
                                         <!-- 제품정보 -->
                                         <td>
-                                            <strong>{{basket.product.name}}
+                                            <strong><a href="{% url 'detail' pk=basket.product.id %}">{{basket.product.name}}</a>
 
-                                                <br>[옵션:23cm]</strong>
-                                            <br> <a class="option_button" href="#"><strong> 옵션변경</strong></a>
+                                                <br>[옵션: {{basket.p_option}}]</strong>
                                         </td>
                                         <!-- 제품수량 -->
                                         <td>
@@ -46,40 +47,40 @@
                                                 <input type="submit" class="option_button" value="수량변경">
                                             </form>
                                         </td>
-                                         <td>
+                                        <td>
                                             {{basket.product.price}} * {{basket.quantity}}
                                         </td>
                                         <td>
                                             <br>
                                             <a class="option_button"
-                                                href="{%url 'deletebasket' pk=basket.product.pk %}"><strong>
+                                                href="{%url 'deletebasket' pk=basket.id %}"><strong>
                                                     삭제</strong></a>
                                         </td>
-                                       
+
                                     </tr>
                                 </tbody>
                                 {% endfor %}
-
-                                <!-- 주문목록끝 -->
-
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                {% else%}
+                                <tbody>
+                                        <tr>
+                                            <td colspan="6">
+                                                장바구니가 비어있습니다.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                {% endif %}
                                 <!-- 주문목록끝 -->
 
                             </table>
 
                             <a class="option_button" style="width:8em; margin-left: 2em;" href="{%url 'order'%}">
-                                    <strong>
-                                        전체상품삭제</strong>
-                                </a>
-                                <a class="option_button" style="width:8em;" href="{%url 'order'%}">
-                                    <strong>
-                                        선택상품삭제</strong>
-                                </a>
+                                <strong>
+                                    전체상품삭제</strong>
+                            </a>
+                            <a class="option_button" style="width:8em;" href="{%url 'order'%}">
+                                <strong>
+                                    선택상품삭제</strong>
+                            </a>
 
                             <a class="option_button" style="width:8em; margin-left: 33em;" href="{%url 'order'%}">
                                 <strong>

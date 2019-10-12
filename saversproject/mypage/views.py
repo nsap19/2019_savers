@@ -17,8 +17,10 @@ def order(request):
 def addbasket(request,pk):
 # def basket(request):
         baskets = Basket.objects
+        r_option = request.GET['property']
+
         
-        if baskets.filter(user_id=1, product_id=pk).exists():
+        if baskets.filter(user_id=1, product_id=pk, p_option=r_option).exists():
                 basket = baskets.get(user_id=1, product_id=pk)
                 basket.quantity +=1
                 basket.save()
@@ -30,6 +32,7 @@ def addbasket(request,pk):
                 basket.product = Product(pk)
                 basket.status = 0
                 basket.quantity =1
+                basket.p_option = r_option
                 
                 basket.save()
         return redirect('/mypage/basket')
@@ -57,7 +60,7 @@ def delete_basket(request, pk):
         baskets = Basket.objects.all()
         u_basket = baskets.filter(user_id=1)
 
-        b = u_basket.get(product_id=pk)
+        b = u_basket.get(id=pk)
         b.delete()
 
         return redirect('/mypage/basket')

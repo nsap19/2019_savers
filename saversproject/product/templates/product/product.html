@@ -33,6 +33,7 @@
                     <!-- <a href="#" data-toggle="modal" data-target="#exampleModal"> -->
 
                     <!-- 상품별 카테고리 뽑아내기 -->
+                    <form action="{% url 'addbasket' pk=product.pk %}">
                     {% regroup properties.all by product as property_list %}
 
                     <ul>
@@ -47,7 +48,7 @@
                                 <li> {{ p.grouper }}</li>
                                 <select name="property">
                                     {% for p1 in p.list %}
-                                    <option value={{p1.property_value}}>
+                                    <option value={{p.grouper}}:{{p1.property_value}}>
                                         {{ p1.property_value }}
                                     </option>
                                     {% endfor %}
@@ -59,7 +60,6 @@
                         {% endif %}
                         {% endfor %}
                     </ul>
-                    <form action="{% url 'addbasket' pk=product.pk %}">
                         <input type="submit" class="search" value="&#xf291;" /> </i>
                     </form>
                     <!-- </a> -->

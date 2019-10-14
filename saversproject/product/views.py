@@ -7,8 +7,9 @@ def product(request):
     products = Product.objects.all()
     properties = ProductProperty.objects.all()
     propertynames = PropertyName.objects.all()    
+    categories = Category.objects.all()
 
-    return render(request, 'product/product.html', {'products':products, 'properties':properties, 'propertynames':propertynames })
+    return render(request, 'product/product.html', {'products':products, 'properties':properties, 'propertynames':propertynames, 'categories': categories })
 
     
 def detail(request, pk):

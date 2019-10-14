@@ -12,6 +12,8 @@ class Basket(models.Model):
     user = models.ForeignKey('login.User', on_delete=models.CASCADE)
     product = models.ForeignKey('product.Product', on_delete=models.CASCADE)
     status = models.IntegerField() #0이면 장바구니, 1이면 주문
+    quantity = models.IntegerField() #주문 수량
+    p_option = models.CharField(max_length=200) #상품 옵션
 
     class Meta:
         managed = True

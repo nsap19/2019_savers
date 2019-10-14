@@ -5,7 +5,7 @@ class UserOrderAdmin(admin.ModelAdmin):
     list_display = ['id', 'user','ordered_product','amount', 'date','order_status']
 
 class BasketAdmin(admin.ModelAdmin):
-    list_display = ['id', 'user', 'product', 'status']
+    list_display = ['id', 'user', 'product', 'p_option','quantity', 'status']
 
 class DonationAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'product', 'donation_value']

@@ -64,6 +64,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     # ('gmail', 'Gmail')
     # )
 
+
+    def __str__(self):
+        return self.name
+
     class Meta:
         app_label='login'
         verbose_name = ('user') #admin 페이지에서 조회할 떄 읽기 쉬운 이름으로 정의하는 옵션

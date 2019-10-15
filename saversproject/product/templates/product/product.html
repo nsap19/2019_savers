@@ -27,7 +27,7 @@
                                 <div class="col-md-3 col-sm-6">
                                     <div class="pu_row">
                                         <div class="single-service white-bg text-center">
-                                                    {% if product.image %}
+                                                    {% if product.image and product.id != 1 %}
                                                     <img src="{{product.image.url}}" alt="/"> <br>
                                                     {% endif %}                                                    
                                                     <h3>{{product.name}}</h3>
@@ -35,28 +35,29 @@
                                                     <h5>{{product.price}}</h5>
                                                     <p>
                                                         카테고리: {{product.category.name}} <br>
-                                                        {% endif %}
-                                                        상품정보: {{product.detail}} <br>
+                                                    {% endif %}
                                                         {% if product.id != 1 %}
-                                                        <a href="{% url 'detail' pk=product.pk %}">상품 자세히 보기</a>
+                                                        상품정보: {{product.detail}} <br>
+                                                        
+                                                        <a href="{% url 'prodetail' pk=product.pk %}">상품 자세히 보기</a>
                                                         {% endif %}
                                                     </p>
                                                     <!-- <a data-toggle="modal" data-target="#exampleModal"> -->
                                                         <!-- 상품별 카테고리 뽑아내기 -->
                                                     <form action="{% url 'addbasket' pk=product.pk %}">
-                                                        {% regroup properties.all by product as property_list %}
+                                                        
+                                                        {% regroup properties.all by product as property_list %} <!-- grouping by product-->
                                     
                                                         <ul>
                                                             {% for property in property_list %}
                                                             {% if property.grouper.id == product.id %}
                                     
                                                             <li>{{ property.grouper }}
-                                    
-                                                                {% regroup property.list by property as p_list %}
+                                                                {% regroup property.list by property as p_list %} <!-- grouping by option_name-->
                                                                 <ul>
                                                                     {% for p in p_list %}
                                                                     <li> {{ p.grouper }}</li>
-                                                                    <select name="property">
+                                                                    <select name="property[]">
                                                                         {% for p1 in p.list %}
                                                                         <option value={{p.grouper}}:{{p1.property_value}}>
                                                                             {{ p1.property_value }}

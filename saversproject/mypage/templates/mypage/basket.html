@@ -33,10 +33,10 @@
                                         <td>
                                             <input type="checkbox" aria-label="Checkbox for following text input"></td>
                                         <td>
-                                            <a href="{% url 'detail' pk=basket.product.id %}"><img src="{{basket.product.image.url}}"></a></td>
+                                            <a href="{% url 'prodetail' pk=basket.product.id %}"><img src="{{basket.product.image.url}}"></a></td>
                                         <!-- 제품정보 -->
                                         <td>
-                                            <strong><a href="{% url 'detail' pk=basket.product.id %}">{{basket.product.name}}</a>
+                                            <strong><a href="{% url 'prodetail' pk=basket.product.id %}">{{basket.product.name}}</a>
 
                                                 <br>[옵션: {{basket.p_option}}]</strong>
                                         </td>

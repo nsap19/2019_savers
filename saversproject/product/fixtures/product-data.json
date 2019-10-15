@@ -120,10 +120,15 @@
             "property": "2",
             "property_value": "블랙"
             }
+    },
+    {
+        "model": "product.productproperty",
+        "pk":5,
+        "fields":{
+            "product": "3",
+            "property": "1",
+            "property_value": "25cm"
+            }
     }
-    
-    
-
-
 
 ]

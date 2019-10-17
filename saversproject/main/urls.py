@@ -4,8 +4,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 from . import views
 
-urlpatterns = [  
-    path('',views.main,name="main"),
-    path('load/',views.load,name="load"),
+urlpatterns = [
+    path('',views.load,name="load"),
+    path('main/',views.main,name="main"),
+    
 ]
 

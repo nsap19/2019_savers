@@ -4,157 +4,101 @@
 
     <link rel="stylesheet" href="{%static 'main/css/layout/mypage.css'%}">
         <!-- mypage 시작-->
-        <div class="mypage">
-            <section id="gtco-welcome" class="bg-white section-padding">
-                <div class="container_mypage">
-                    <div class="section-content">
-                        <div class="row">
-                            <div class="pl-lg-5 ml-md-5">
-                                <div class="container_mypage2">
-                                    <h1 class="mypage_text">
-                                        Mypage
-                                    </h1>
-                                    <!-- 개인정보 시작 -->
-                                    <div class="mypage_user">
-                                        <div class="user_row">
-                                            <img src="{%static 'main/img/user.png'%}"></div>
-                                            <div class="user_row">
-                                                <!-- user_name -->
-                                                <h4>안녕하세요 장희승님</h4>
-                                                <!-- user_email -->
-                                                <h4>email : gmltmd121@gmail.com</h4>
-                                                <!-- user tel -->
-                                                <h4>tel : 000-0000-0000</h4>
-                                            </div>
-                                            <div class="user_row">
-                                                <!-- 가운대 점선 줄 -->
-                                                <div class="user_border"></div>
-                                            </div>
-                                            <div class="user_row">
-                                                <!-- user_coin -->
-                                                <h4>남은 coin : 5000원
-                                                    <!-- <img src="{%static 'main/img/coin.png'%}"> -->
-                                                </h4>
-                                                <br>
-                                                    <!-- user_pay(월정액) -->
-                                                    <h4>내가 사용하는 월정액 : 3개월 [1Year]</h4>
-                                                </div>
-                                                <div class="user_row">
-                                                    <div class="card" style="width: 38rem; height: 18rem;">
-                                                        <div class="card-body">
-                                                            <!-- 주문목록 간단히 -->
-                                                            <h4 class="card-title">주문목록</h4>
-                                                            <p class="card-text">
-                                                                <table class="table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th scope="col">물품</th>
-                                                                            <th scope="col">갯수</th>
-                                                                            <th scope="col">날짜</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>빨대</td>
-                                                                            <td>3</td>
-                                                                            <td>09.02</td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </p>
-                                                            <!-- 주문목록 페이지로 넘어가는 버튼 -->
-                                                            <a href="{%url 'basket'%}" class="btn btn-primary">장바구니</a>
-                                                            <a href="{%url 'mydetail'%}" class="btn btn-primary">자세히</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- 주문목록 끝 -->
-                                            <!-- 개인정보 끝 -->
-                                            <!-- 배송 -->
-                                            <h2>배송현황</h2>
-                                            <div class="jumbotron jumbotron-fluid">
-                                                <div class="delivery">
-                                                    <div class="delivery_row">
-                                                        <img src="{%static 'main/img/gift2.png'%}">
-                                                            <p>배송준비중</p>
-                                                        </div>
-                                                        <div class="delivery_row">
-                                                            <img src="{%static 'main/img/arrow.png'%}"></div>
-                                                            <div class="delivery_row">
-                                                                <img src="{%static 'main/img/delivery-truck.png'%}">
-                                                                    <p>배송중</p>
-                                                                </div>
-                                                                <div class="delivery_row">
-                                                                    <img src="{%static 'main/img/arrow.png'%}"></div>
-                                                                    <div class="delivery_row">
-                                                                        <img src="{%static 'main/img/box2.png'%}">
-                                                                            <p>배송완료</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <!-- 배송끝 -->
-                                                                <!-- 기여도 그래프 -->
-                                                                <div class="history-area ptb-90">
-                                                                    <div class="container">
-                                                                        <div class="row">
-                                                                            <div class="col-md-6">
-                                                                                <div class="history-text">
-                                                                                    <h2>기여도</h2>
-                                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                                                        tempor incididunt ut labore et dolore magna aliqua. U enim ad minim veniam, quis
-                                                                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commod consequat.
-                                                                                        Duis aute irure dol in reprehenderit in voluptate velit sed do eiusmod tempor
-                                                                                        incididunt</p>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <div class="skill">
-                                                                                    <div class="progress">
-                                                                                        <div class="lead">00단체</div>
-                                                                                        <div
-                                                                                            class="progress-bar wow fadeInLeft"
-                                                                                            data-progress="95%"
-                                                                                            style="width: 95%;"
-                                                                                            data-wow-duration="1.5s"
-                                                                                            data-wow-delay="1.2s">
-                                                                                            <span>95%</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="progress">
-                                                                                        <div class="lead">00업체</div>
-                                                                                        <div
-                                                                                            class="progress-bar wow fadeInLeft"
-                                                                                            data-progress="90%"
-                                                                                            style="width: 90%;"
-                                                                                            data-wow-duration="1.5s"
-                                                                                            data-wow-delay="1.2s">
-                                                                                            <span>90%</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="progress an-rs">
-                                                                                        <div class="lead">00단체</div>
-                                                                                        <div
-                                                                                            class="progress-bar wow fadeInLeft"
-                                                                                            data-progress="95%"
-                                                                                            style="width: 95%;"
-                                                                                            data-wow-duration="1.5s"
-                                                                                            data-wow-delay="1.2s">
-                                                                                            <span>95%</span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
+        <div class="container">
+            <div class="card_row">
+                <div class="col-lg-6 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body" style="text-align: center;">
+                            <h1 class="card-title">회원정보</h1>
+                            <img class="user_img" src="{%static 'main/img/user.png'%}">
+                                <h3>장희승</h3>
+                                <h3>gmltmd121@gmail.com</h3>
+                                <h3>Tel: 010 - 0000 -0000</h3>
+                                <h3>가입일: 2019.10.07</h3>
+                                <h3 style="color: #5D8222;">SEED[1YEAR]</h3>
 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 grid-margin stretch-card">
+                        <div class="card" style="height:80%;">
+                            <div class="card-body">
+                                <h2 class="card-title">주문목록</h2>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">물품</th>
+                                            <th scope="col">갯수</th>
+                                            <th scope="col">날짜</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>빨대</td>
+                                            <td>3</td>
+                                            <td>09.02</td>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>빨대</td>
+                                            <td>3</td>
+                                            <td>09.02</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <br>
+                                    <br>
+                                        <a href="{%url 'basket'%}" class="btn btn-primary">장바구니</a>
+                                        <a href="{%url 'mydetail'%}" class="btn btn-primary">자세히</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card_row">
+                            <div class="col-lg-6 grid-margin stretch-card">
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h1 class="card-title">배송현항</h1>
+                                        <div class="jumbotron jumbotron-fluid">
+                                            <div class="delivery">
+                                                <div class="delivery_row">
+                                                    <img src="{%static 'main/img/gift2.png'%}">
+                                                        <p>배송준비중</p>
+                                                    </div>
+                                                    <div class="delivery_row">
+                                                        <img src="{%static 'main/img/arrow.png'%}"></div>
+                                                        <div class="delivery_row">
+                                                            <img src="{%static 'main/img/delivery-truck.png'%}">
+                                                                <p>배송중</p>
+                                                            </div>
+                                                            <div class="delivery_row">
+                                                                <img src="{%static 'main/img/arrow.png'%}"></div>
+                                                                <div class="delivery_row">
+                                                                    <img src="{%static 'main/img/box2.png'%}">
+                                                                        <p>배송완료</p>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-lg-6 grid-margin stretch-card">
+                                                    <div class="card" style="margin-top: -5em; height: 25em;">
+                                                        <div class="card-body">
+                                                            <h2 class="card-title">관심도</h2>
+                                                            <canvas id="pieChart"></canvas>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card" style="margin-top: 2.5em; width: 78em;">
+                                                    <div class="card-body">
+                                                            <h2 class="card-title">기여도</h2>
+                                                        <canvas id="areaChart"style="height:25px;"></canvas>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </section>
-                                    </div>
-                                    <!-- mypage끝 -->
-                                    {%endblock%}
+                                        </div>
+                                        <!-- mypage끝 -->
+                                        {%endblock%}

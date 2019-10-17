@@ -111,7 +111,6 @@ DATABASES = {
     }
 }
 
-#뿅뿅뿅
 
 
 # Password validation

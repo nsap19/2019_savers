@@ -26,6 +26,7 @@
                                 <div class="container_product">
                                 <div class="col-md-3 col-sm-6">
                                     <div class="pu_row">
+                                        <a href="{% url 'prodetail' pk=product.pk %}">
                                         <div class="single-service white-bg text-center">
                                                     {% if product.image and product.id != 1 %}
                                                     <img src="{{product.image.url}}" alt="/"> <br>
@@ -38,8 +39,6 @@
                                                     {% endif %}
                                                         {% if product.id != 1 %}
                                                         상품정보: {{product.detail}} <br>
-                                                        
-                                                        <a href="{% url 'prodetail' pk=product.pk %}">상품 자세히 보기</a>
                                                         {% endif %}
                                                     </p>
                                                     <!-- <a data-toggle="modal" data-target="#exampleModal"> -->
@@ -79,6 +78,7 @@
                                                             <input type="submit" class="search" value="&#xf291;" style="font-size: 25px;"/>
                                                         </form> -->
                                             </div>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

@@ -24,9 +24,10 @@ def order(request):
 
 def addbasket(request,pk):
         baskets = Basket.objects
+        products = Product.objects
         r_option = ' '.join(request.GET.getlist('property[]'))
         current_user_pk = request.user.id
-
+       
         
         if baskets.filter(user_id=current_user_pk, product_id=pk, p_option=r_option).exists():
                 basket = baskets.get(user_id=current_user_pk, product_id=pk,p_option=r_option)

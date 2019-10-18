@@ -1,5 +1,6 @@
 {%extends 'main/layout.html'%}
 {%load staticfiles%}
+{%load mathfilters%}
 {%block content%}
 <link rel="stylesheet" href="{%static 'main/css/layout/mypage.css'%}">
 <!-- mypage 시작-->
@@ -47,8 +48,11 @@
                                                 <input type="submit" class="option_button" value="수량변경">
                                             </form>
                                         </td>
+                                        <!-- 제품가격 -->
                                         <td>
-                                            {{basket.product.price}} * {{basket.quantity}}
+                                            {% with a=basket.product.price b=basket.quantity %} 
+                                            {{a|mul:b}}
+                                            {% endwith %}
                                         </td>
                                         <td>
                                             <br>

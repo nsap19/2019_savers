@@ -122,15 +122,11 @@
                                 </p>
                             </div>
                             <ul>
-                                <a href="{%url 'pay'%}">
-                                    <li>3000won</li>
-                                </a>
-                                <a href="{%url 'pay'%}">
-                                    <li>5000won</li>
-                                </a>
-                                <a href="{%url 'pay'%}">
-                                    <li>10000won</li>
-                                </a>
+                                    {% for c in coins.all %}
+                                    <a href="{%url 'pay' %}">
+                                        <li>{{c.coin}}won</li>
+                                    </a>
+                                   {% endfor %}
 
                             </ul>
 
@@ -146,15 +142,11 @@
                                 </p>
                             </div>
                             <ul>
-                                <a href="{%url 'pay'%}">
-                                    <li>3000won</li>
+                                {% for c in coins.all %}
+                                <a href="{%url 'pay'  %}">
+                                    <li>{{c.coin}}won</li>
                                 </a>
-                                <a href="{%url 'pay'%}">
-                                    <li>5000won</li>
-                                </a>
-                                <a href="{%url 'pay'%}">
-                                    <li>10000won</li>
-                                </a>
+                               {% endfor %}
 
                             </ul>
 
@@ -170,16 +162,11 @@
                                 </p>
                             </div>
                             <ul>
-                                <a href="{%url 'pay'%}">
-                                    <li>3000won</li>
-                                </a>
-                                <a href="{%url 'pay'%}">
-                                    <li>5000won</li>
-                                </a>
-                                <a href="{%url 'pay'%}">
-                                    <li>10000won</li>
-                                </a>
-
+                                    {% for c in coins.all %}
+                                    <a href="{%url 'pay' %}">
+                                        <li>{{c.coin}}won</li>
+                                    </a>
+                                   {% endfor %}
                             </ul>
 
                         </div>
@@ -194,15 +181,11 @@
                                 </p>
                             </div>
                             <ul>
-                                <a href="{%url 'pay'%}">
-                                    <li>3000won</li>
-                                </a>
-                                <a href="{%url 'pay'%}">
-                                    <li>5000won</li>
-                                </a>
-                                <a href="{%url 'pay'%}">
-                                    <li>10000won</li>
-                                </a>
+                                    {% for c in coins.all %}
+                                    <a href="{%url 'pay' %}">
+                                        <li>{{c.coin}}won</li>
+                                    </a>
+                                   {% endfor %}
 
                             </ul>
 

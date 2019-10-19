@@ -24,3 +24,9 @@ class Pay(models.Model):
     class Meta:
         managed = True
         # db_table = 'pay'
+
+class Coin(models.Model):
+    coin = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = True

@@ -1,0 +1,24 @@
+[
+    
+    {
+    "model": "pay.coin",
+    "pk": 1,
+    "fields": {
+        "coin": 5000
+        }
+    },
+    {
+    "model": "pay.coin",
+    "pk":2,
+    "fields":{
+        "coin": 10000
+        }
+    },
+    {
+    "model": "pay.coin",
+    "pk":3,
+    "fields":{
+        "coin": 20000
+        }
+    }
+]

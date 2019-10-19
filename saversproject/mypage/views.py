@@ -92,7 +92,7 @@ def order_all(request):
         order = UserOrder()
         # user = User(1)
         order.user = User(current_user_pk)
-        order.ordered_product = Product(pk)
+        order.ordered_product = u_basket.product_id
         order.amount = 0
         order.order_status =1
                 

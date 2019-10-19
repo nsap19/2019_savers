@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -181,3 +183,8 @@ ACCOUNT_USER_MODEL_USERNAME_FIELD = 'email'
 
 SOCIALACCOUNT_AUTO_SIGNUP = False
 ACCOUNT_SIGNUP_FORM_CLASS = 'login.forms.SignupForm'
+
+# # 테스트 용
+#     iamport = Iamport(imp_key='imp_apikey', imp_secret='ekKoeW8RyKuT0zgaZsUtXXTLQ4AhPFW3ZGseDA6bkA5lamv9OqDMnxyeB9wqOsuO9W3Mx9YSJ4dTqJ3f')
+#     # 상품 아이디로 결제 상품 조회
+#     response = iamport.find(merchant_uid='pk')

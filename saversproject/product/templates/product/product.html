@@ -1,6 +1,7 @@
 {%extends 'main/layout.html'%}
 {%load staticfiles%}
 {%block content%}
+    <link rel="stylesheet" href="{%static 'main/css/layout/product.css'%}">
     <br>
     <div class=" container" style="width: 50em;">
         <div
@@ -22,7 +23,6 @@
             </button>
         </div>
     </div>
-    <link rel="stylesheet" href="{%static 'main/css/layout/product.css'%}">
     <!-- 카테고리 -->
     <div class="product_user">
         <div class="pu_row">
@@ -85,33 +85,62 @@
                                                         {% for p in p_list %}
                                                             <li>
                                                                 {{ p.grouper }}</li>
-                                                                <select name="property[]">
-                                                                    {% for p1 in p.list %}
-                                                                        <option value={{p.grouper} }:{{p1.property_value}}="}:{{p1.property_value}}">
-                                                                            {{ p1.property_value }}
-                                                                        </option>
-                                                                    {% endfor %}
-                                                                </select>
-                                                            {% endfor %}
-                                                        </ul>
-    
-                                                    </li>
-                                                {% endif %}
-                                            {% endfor %}
-                                        </ul>
-                                        <input
-                                            type="submit"
-                                            class="search"
-                                            value="&#xf291;"
-                                            data-toggle="modal"
-                                            data-target="#exampleModal"/>
-                                    </i>
-                                </form>
-                                <!-- <form href="#"> <i class="fa fa-shopping-basket" style='font-size:25px;
-                                padding-top: 4px;'></i> <input type="submit" class="search" value="&#xf291;"
-                                style="font-size: 25px;"/> </form> -->
-                            </div>
-                        </a>
-                    </div>
+                                                            <select name="property[]">
+                                                                {% for p1 in p.list %}
+                                                                    <option value={{p.grouper}}:{{p1.property_value}}>
+                                                                        {{ p1.property_value }}
+                                                                    </option>
+                                                                {% endfor %}
+                                                            </select>
+                                                        {% endfor %}
+                                                    </ul>
+
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                    <input
+                                        type="submit"
+                                        class="search"
+                                        value="&#xf291;"
+                                        />
+                                </i>
+                            </form>
+                        
+                        </div>
+                    </a>
                 </div>
             </div>
+        </div>
+
+    {% endfor %}
+</div>
+<div class="pt">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+{%endblock%}

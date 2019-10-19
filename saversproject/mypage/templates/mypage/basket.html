@@ -45,7 +45,7 @@
                                         <td>
                                             <form action="{%url 'amountupdate' pk=basket.product.pk %}">
                                                 <input type="text" name="quantity" placeholder={{basket.quantity}}>
-                                                <input type="submit" class="option_button" value="수량변경">
+                                                <input type="submit" class="btn btn-primary"  value="수량변경">
                                             </form>
                                         </td>
                                         <!-- 제품가격 -->
@@ -56,7 +56,7 @@
                                         </td>
                                         <td>
                                             <br>
-                                            <a class="option_button"
+                                            <a class="btn btn-primary" 
                                                 href="{%url 'deletebasket' pk=basket.id %}"><strong>
                                                     삭제</strong></a>
                                         </td>
@@ -76,21 +76,22 @@
                                 <!-- 주문목록끝 -->
 
                             </table>
+                            <br><br>
 
-                            <a class="option_button" style="width:8em; margin-left: 2em;" href="{%url 'order'%}">
+                            <a class="btn btn-primary"  style="width:8em; margin-left: 10em;" href="{%url 'order'%}">
                                 <strong>
                                     전체상품삭제</strong>
                             </a>
-                            <a class="option_button" style="width:8em;" href="{%url 'order'%}">
+                            <a class="btn btn-primary"  style="width:8em;" href="{%url 'order'%}">
                                 <strong>
                                     선택상품삭제</strong>
                             </a>
 
-                            <a class="option_button" style="width:8em; margin-left: 33em;" href="{%url 'order'%}">
+                            <a class="btn btn-primary"  style="width:8em; margin-left: 33em;" href="{%url 'order'%}">
                                 <strong>
                                     전체상품주문</strong>
                             </a>
-                            <a class="option_button" style="width:8em;" href="{%url 'order'%}">
+                            <a class="btn btn-primary"  style="width:8em;" href="{%url 'order'%}">
                                 <strong>
                                     선택상품주문</strong>
                             </a>

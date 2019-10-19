@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',#social login
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -49,6 +50,16 @@ INSTALLED_APPS = [
     'pay.apps.PayConfig',
     #main apps
     'main.apps.MainConfig',
+
+    #allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    #provider
+    'allauth.socialaccount.providers.google',
+
+    'mathfilters',
 ]
 
 MIDDLEWARE = [
@@ -87,8 +98,18 @@ WSGI_APPLICATION = 'saversproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        # 'NAME': 'savers',
+        # 'USER': 'root', # 데이터베이스 계정
+        # 'PASSWORD': '1234', # 계정 비밀번호
+        # 'HOST': 'localhost', # 데이테베이스 주소(IP)
+        # 'PORT': '3306', # 데이터베이스 포트(보통은 3306)     
+        'OPTIONS': {
+            'read_default_file': os.path.join(BASE_DIR, 'mysql.cnf'),
+            'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"', #"data too long for column"에러 없애려고 주석처리.
+        }   
     }
 }
 
@@ -138,3 +159,25 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+AUTH_USER_MODEL = 'login.User'
+
+AUTHENTICATION_BACKENDS = (
+    ('django.contrib.auth.backends.ModelBackend'),
+    ('allauth.account.auth_backends.AuthenticationBackend'),
+)
+    
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL = "/"
+LOGIN_URL = '/login/'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+# ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = 'email'
+
+SOCIALACCOUNT_AUTO_SIGNUP = False
+# ACCOUNT_SIGNUP_FORM_CLASS = 'login.forms.SignupForm'

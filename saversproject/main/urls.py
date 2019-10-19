@@ -8,4 +8,3 @@ urlpatterns = [
     path('',views.main,name="main"),
     path('load/',views.load,name="load"),
 ]
-

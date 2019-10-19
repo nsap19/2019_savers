@@ -49,22 +49,28 @@
 										<li><a href="{%url 'main'%}">HOME</a>
 										</li>
 										<!-- nav_board -->
-										<li><a href="{%url 'n_board'%}">board</a>
+										<li><a href="#">board</a>
 										    <ul>
 												<!-- nav_board_notice -->
-												<li><a href="#">notice</a></li>
+												<li><a href="{%url 'noticeboard'%}">notice</a></li>
 												<!-- nav_board_q&a -->
-												<li><a href="#">Q&A</a></li>
+												<li><a href="{%url 'qaboard' %}">Q&A</a></li>
 											</ul>
 										</li>
 										<!-- nav_product -->
 										<li><a href="{%url 'product'%}">product</a></li>
 										<!-- nav_mypage -->
 										<li><a href="{%url 'mypage'%}">mypage</a></li>
+										
+										{% if user.is_authenticated %}
+										<!-- nav_logout 로그인이 되어있을때 -->
+										<li>hello, {{user.name}}</li>
+										<li><a href="{%url 'logout' %}">logout</a></li>
+										{% else %}
 										<!-- nav_login 로그인이 안되어있을때 -->
 										<li><a href="{%url 'login'%}">login</a></li>
-										<!-- nav_logout 로그인이 되어있을때 -->
-										<li><a href="#">logout</a></li>
+										{% endif %}
+										
 									</ul>
 								</nav>
 							</div>

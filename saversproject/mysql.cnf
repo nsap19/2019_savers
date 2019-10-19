@@ -1,0 +1,6 @@
+[client]
+database = savers
+host = localhost
+user = root
+password = bin042442=
+default-character-set = utf8

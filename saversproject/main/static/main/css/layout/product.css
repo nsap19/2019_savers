@@ -783,5 +783,16 @@ body {
 	.mcd-menu li ul a i {
 		font-size:14px;
 	}
-    
+}
+input{
+    background-color: white;
+    border: 0;
+}
+input[type="submit"] {
+    font-family: FontAwesome;
+}
+
+input{
+    background-color: white;
+    border: 0;
 }

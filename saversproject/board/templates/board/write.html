@@ -5,32 +5,43 @@
         <section id="gtco-welcome" class="bg-white section-padding">
             <div class="board">
                 <!-- Q&A 또는 공지사항이나오게 -->
-                <h1>Question</h1>
+                <h1>{{ word }}</h1>
                 <!-- board_title쓰는 칸 -->
                 <!-- title -->
                 <div class="write_container">
-                    <form>
+                    {% if word == 'Question' %}
+                    <form method="POST" action="{% url 'q_create' %}">
+                    {% elif word == 'Notice' %}
+                    <form method="POST" action="{% url 'n_create' %}">
+                    {% endif %}
+                        {% csrf_token %}
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Title</label>
                             <input
                                 type="text"
                                 class="form-control"
                                 id="exampleFormControlInput1"
-                                placeholder="title"></div>
+                                placeholder="title"
+                                name="title"></div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Content</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="content"></textarea>
                             </div>
                             <br>
                                 <br>
                                     <!-- 제출버튼, 뒤로가기버튼 -->
                                     <div class="submit">
                                         <button type="submit" class="btn btn-primary">Submit</button>
-                                        <a href="{%url 'n_board'%}" class="btn btn-primary">Back</a>
+                                        {% if word == 'Question' %}
+                                        <a href="{%url 'qaboard'%}" class="btn btn-primary">Back</a>
+                                        {% elif word == 'Notice' %}
+                                        <a href="{%url 'noticeboard'%}" class="btn btn-primary">Back</a>
+                                        {% endif %}
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                    </section>
+                                
+                        </form>
+                    </div>
+                </div>
+            </section>
 
                     {%endblock%}

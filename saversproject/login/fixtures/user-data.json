@@ -1,0 +1,15 @@
+[
+    
+    {
+    "model": "login.user",
+    "pk": 1,
+    "fields": {
+        "name": "이혜민",
+        "address":"서울시 은평구 응암동 749-40",
+        "email":"zzz0484@naver.com",
+        "password":"1234",
+        "tel": "01074441260"
+        }
+    }
+
+]

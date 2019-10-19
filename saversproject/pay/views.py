@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from iamport import Iamport
+# from iamport import Iamport
 
 # Create your views here.
 def pay(request):

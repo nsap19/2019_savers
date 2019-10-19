@@ -101,13 +101,13 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'savers',
-        # 'USER': 'root', # 데이터베이스 계정
-        # 'PASSWORD': '1234', # 계정 비밀번호
-        # 'HOST': 'localhost', # 데이테베이스 주소(IP)
-        # 'PORT': '3306', # 데이터베이스 포트(보통은 3306)     
+        'NAME': 'savers',
+        'USER': 'root', # 데이터베이스 계정
+        'PASSWORD': 'jang970212!', # 계정 비밀번호
+        'HOST': 'localhost', # 데이테베이스 주소(IP)
+        'PORT': '3306', # 데이터베이스 포트(보통은 3306)     
         'OPTIONS': {
-            'read_default_file': os.path.join(BASE_DIR, 'mysql.cnf'),
+            # 'read_default_file': os.path.join(BASE_DIR, 'mysql.cnf'),
             'init_command': 'SET sql_mode="STRICT_TRANS_TABLES"', #"data too long for column"에러 없애려고 주석처리.
         }   
     }

@@ -42,7 +42,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     donate_value = models.IntegerField(blank=True, default=0) #기부금 총 합
     coin = models.IntegerField(blank=True, default=0)
     post_code = models.CharField(max_length=45,blank=True, default='NULL') #우편번호
-    term = models.IntegerField( blank=True, default=1) #월정액 기한 1개월/3개월/6개월/12개월
+    term = models.IntegerField( blank=True, default=0) #월정액 기한 1개월/3개월/6개월/12개월
     use_period = models.IntegerField(blank=True, default=0) #월정액 사용기한 
 
     #AbstractBaseUser사용할때 꼭 정의해줘야 

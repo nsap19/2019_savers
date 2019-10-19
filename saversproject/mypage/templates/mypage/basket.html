@@ -1,5 +1,6 @@
 {%extends 'main/layout.html'%}
 {%load staticfiles%}
+{%load mathfilters%}
 {%block content%}
 <link rel="stylesheet" href="{%static 'main/css/layout/mypage.css'%}">
 <!-- mypage 시작-->
@@ -33,10 +34,10 @@
                                         <td>
                                             <input type="checkbox" aria-label="Checkbox for following text input"></td>
                                         <td>
-                                            <a href="{% url 'detail' pk=basket.product.id %}"><img src="{{basket.product.image.url}}"></a></td>
+                                            <a href="{% url 'prodetail' pk=basket.product.id %}"><img src="{{basket.product.image.url}}"></a></td>
                                         <!-- 제품정보 -->
                                         <td>
-                                            <strong><a href="{% url 'detail' pk=basket.product.id %}">{{basket.product.name}}</a>
+                                            <strong><a href="{% url 'prodetail' pk=basket.product.id %}">{{basket.product.name}}</a>
 
                                                 <br>[옵션: {{basket.p_option}}]</strong>
                                         </td>
@@ -47,8 +48,11 @@
                                                 <input type="submit" class="option_button" value="수량변경">
                                             </form>
                                         </td>
+                                        <!-- 제품가격 -->
                                         <td>
-                                            {{basket.product.price}} * {{basket.quantity}}
+                                            {% with a=basket.product.price b=basket.quantity %} 
+                                            {{a|mul:b}}
+                                            {% endwith %}
                                         </td>
                                         <td>
                                             <br>

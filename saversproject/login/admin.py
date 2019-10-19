@@ -11,7 +11,7 @@ class UserAdmin(BaseUserAdmin):
     # that reference specific fields on auth.User.
 
     #admin 사이트에 보여질 필드 정의
-    list_display = ('get_full_name', 'email', 'name', 'is_active', 'is_superuser', )
+    list_display = ('id','get_full_name', 'email', 'name', 'is_active', 'is_superuser', )
     #링크 기능(클릭)을 추가할 필드를 정의하는 옵션
     list_display_links = ('get_full_name',)
     #필터를 활성화할 필드를 설정하는 옵션

@@ -7,14 +7,8 @@
         "name": "이혜민",
         "address":"서울시 은평구 응암동 749-40",
         "email":"zzz0484@naver.com",
-        "pw":"1234",
-        "tel": "01074441260",
-        "monthly_amount":"20000",
-        "donate_value":0,
-        "coin":0,
-        "post_code":"191-17",
-        "term":3,
-        "use_period":1
+        "password":"1234",
+        "tel": "01074441260"
         }
     }
 

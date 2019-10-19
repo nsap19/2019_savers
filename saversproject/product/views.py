@@ -7,15 +7,16 @@ def product(request):
     products = Product.objects.all()
     properties = ProductProperty.objects.all()
     propertynames = PropertyName.objects.all()    
+    categories = Category.objects.all()
 
-    return render(request, 'product/product.html', {'products':products, 'properties':properties, 'propertynames':propertynames })
+    return render(request, 'product/product.html', {'products':products, 'properties':properties, 'propertynames':propertynames, 'categories': categories })
 
     
-def detail(request, pk):
+def prodetail(request, pk):
     product = Product.objects.get(pk=pk)
     properties = ProductProperty.objects.filter(product_id=pk)
     propertynames = PropertyName.objects.all()
     
     # current_user_pk = request.user.id
-    return render(request, 'product/detail.html',{'product':product, 'properties':properties})
+    return render(request, 'product/prodetail.html',{'product':product, 'properties':properties})
 

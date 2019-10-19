@@ -146,8 +146,8 @@ class SignupForm(forms.Form):
         user.email = self.cleaned_data['email']
         user.tel = self.cleaned_data['tel']
         user.coin = self.cleaned_data['coin']
-        user.past_code = self.cleaned_data['past_code']
+        user.post_code = self.cleaned_data['past_code']
         user.term = self.cleaned_data['term']
-        user.user_period = self.cleaned_data['user_period']
+        # user.user_period = self.cleaned_data['user_period']
         user.donate_value = self.cleaned_data['donate_value']
         user.save()

@@ -63,16 +63,35 @@ def notice_detail(request, noticeboard_id):
 #q&a 카테고리의 글 내용을 보여줄 함수
 def QandA_detail(request, qaboard_id):
         q_detail = get_object_or_404(QABoard, pk=qaboard_id)
-        return render(request, 'board/q_detail.html', {'q_detail':q_detail})
+        length = QABoardComment.objects.filter(q_a_id=qaboard_id).count()
+
+        if length == 1:
+                answer = QABoardComment.objects.get(q_a_id=qaboard_id)
+        else:
+                answer = "No Answer"
+        return render(request, 'board/q_detail.html', {'q_detail':q_detail, 'answer':answer})
+        # if QABoardComment.objects.get(q_a_id=qaboard_id).exists:
+        #         answer = get_object_or_404(QABoardComment, q_a_id=qaboard_id)
+        # else:
+        #         answer = "No Answer"
+        # return render(request, 'board/q_detail.html', {'q_detail':q_detail})
         
-# Create your views here.
-# def n_board(request):
-#         return render(request,'board/n_board.html')
-# def q_board(request):
-#         return render(request,'board/q_board.html')
-# def write(request):
-#         return render(request,'board/write.html')
-# def n_detail(request):
-#         return render(request,'board/n_detail.html')
-# def q_detail(request):
-#         return render(request,'board/q_detail.html')
+# 질문글에 대한 관리자의 댓글 생성
+def createAnswer(request, qaboard_id):
+        answer = QABoardComment()
+        q_detail = get_object_or_404(QABoard, pk=qaboard_id)
+        if request.method == 'POST':
+                form = CommentForm(request.POST, instance=answer)
+                answer.content = request.POST['content']
+                if form.is_valid():
+                        answer = form.save(commit=False)
+                        answer.q_a_id = q_detail.id #현재 로그인 되어 있는 계정의 id값을 가져오기.
+                        # username = request.user.name
+                        answer.save()
+                        # return redirect('QandA_detail')
+                        return render(request, 'board/q_detail.html', {'q_detail':q_detail, 'answer':answer})
+
+        else:
+                form = CommentForm(instance=answer)
+                return render(request, 'board/answer.html', {'form':form, 'q_detail':q_detail})     
+        return render()

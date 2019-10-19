@@ -10,6 +10,7 @@ urlpatterns = [
 
     path('qaboard/',views.qaboard,name="qaboard"),
     path('qaboard/<int:qaboard_id>/',views.QandA_detail,name="QandA_detail"),
+    path('qaboard/<int:qaboard_id>/comment/',views.createAnswer,name="comment"),
 
     path('write/<word>/',views.write,name="write"),
     path('detail/',views.detail,name="detail"),

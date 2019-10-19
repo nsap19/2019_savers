@@ -6,7 +6,7 @@ $(function () {
   'use strict';
   var doughnutPieData = {
     datasets: [{
-      data: [30, 40, 30],
+      data: [100],
       backgroundColor: [
         'rgba(255, 99, 132, 0.5)',
         'rgba(54, 162, 235, 0.5)',
@@ -28,8 +28,6 @@ $(function () {
     // These labels appear in the legend and in the tooltips when hovering different arcs
     labels: [
       '빨대',
-      '텀블러',
-      '장바구니',
     ]
   };
   var doughnutPieOptions = {
@@ -40,10 +38,10 @@ $(function () {
     }
   };
   var areaData = {
-    labels: ["2015", "2016", "2017", "2018", "2019"],
+    labels: ["2018","2019","2020"],
     datasets: [{
       label: '# of Votes',
-      data: [2,5,7,12,11],
+      data: [0,1],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',

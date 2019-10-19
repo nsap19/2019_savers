@@ -1,0 +1,51 @@
+{%extends 'main/layout.html'%}
+{%load staticfiles%}
+{%block content%}
+<link rel="stylesheet" href="{%static 'main/css/layout/board.css'%}">
+<section id="gtco-welcome" class="bg-white section-padding">
+    <div class="board">
+        <h1>Question</h1>
+        <!-- board_Question 내용 나오는 칸 -->
+        <div class="question_box">
+            <div class="card" style="width: 90rem;">
+                <div class="card-body1">
+                    <!-- <h5 class="card-title">Title : Save earth</h5> -->
+                    <h5 class="card-title">Title : {{q_detail.title}}</h5>
+                    <br>
+                    <h6 class="card-subtitle mb-2 text-muted">Name : {{q_detail.user.name}}</h6>
+                    <br>
+                    <!-- <p class="card-text">Q.  세이버스는 어떤 서비스 인가요? -->
+                    <p class="card-text">{{q_detail.content}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- board_Answer 나오는 칸 -->
+        <div class="answer_box">
+            <div class="card" style="width: 90rem;">
+                <div class="card-body1">
+                    <h5 class="card-title">Answer</h5>
+                    <br>
+                    <h6 class="card-subtitle mb-2 text-muted">Savers</h6>
+                    <br>
+                    <form method="POST" action="{% url 'comment' q_detail.id%}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Content</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"
+                                name="content"></textarea>
+                        </div>
+                        <br>
+                        <br>
+                        <!-- 제출버튼, 뒤로가기버튼 -->
+                        <div class="submit">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}

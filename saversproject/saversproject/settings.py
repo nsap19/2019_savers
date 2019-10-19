@@ -188,3 +188,4 @@ ACCOUNT_SIGNUP_FORM_CLASS = 'login.forms.SignupForm'
 #     iamport = Iamport(imp_key='imp_apikey', imp_secret='ekKoeW8RyKuT0zgaZsUtXXTLQ4AhPFW3ZGseDA6bkA5lamv9OqDMnxyeB9wqOsuO9W3Mx9YSJ4dTqJ3f')
 #     # 상품 아이디로 결제 상품 조회
 #     response = iamport.find(merchant_uid='pk')
+# ACCOUNT_SIGNUP_FORM_CLASS = 'login.forms.SignupForm'

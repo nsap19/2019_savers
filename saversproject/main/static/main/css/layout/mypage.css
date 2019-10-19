@@ -8,6 +8,75 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+.card_row{
+    margin-top:30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.stretch-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: stretch;
+    -ms-flex-pack: stretch;
+    justify-content: stretch;
+}
+.card {
+    border: 0;
+    background: #fff;
+    height: 100%;
+    width: 50em;
+    border-radius: 2%;
+}
+
+.card .card-body {
+    padding: 2.5rem 2.5rem;
+}
+.mypage_container{
+    width: 1100px;
+    margin: auto;
+}
+footer{
+    margin-top:80px;
+}
+.user_img{
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.card-title{
+    margin-bottom: 15px;
+}
+.delivery img {
+    width: 4em;
+    height: 4em;
+}
+.delivery {
+    display: flex;
+    flex-direction: row;
+}
+.delivery_row {
+    flex:auto;
+}
+
+.card-body > .btn{
+    margin: 2px;
+    float: right;
+}
+
+/* -------------------------------------------------------mydetail------------------------------------------------------------------ */
+td>img{
+    width: 12em;
+    height: 12em;
+}
+.mydetail_h2{
+    margin-top: 0.5em;
+    margin-bottom:1em; 
+}
 @media (min-width: 992px) {
     .mypage .section-padding {
         padding-top: 2em;
@@ -20,10 +89,6 @@
         margin: 30px;
     }
 }
-/* 
-#body {
-    background-color: #f4ede5;
-} */
 
 .container_mypage {
     margin: auto;
@@ -41,73 +106,8 @@
     width: 80em;
     margin: auto;
 }
-.delivery img {
-    width: 8em;
-    height: 8em;
-}
-.delivery {
-    margin-left: 5em;
-    display: flex;
-    flex-direction: row;
-}
-.delivery_row {
-    flex: 0 0 220px;
-}
 
-.mypage_user {
-    margin-bottom: 3em;
-    display: flex;
-    flex-direction: row;
-}
 
-.user_row > img {
-    width: 6em;
-    height: 6em;
-    margin-top: 1.5em;
-}
-.user_row {
-    flex: 0 0 110px;
-}
-.user_row:nth-child(2) {
-    flex: 0 0 230px;
-    margin-top: 1.1em;
-}
-.user_row:nth-child(3) {
-    flex: 0 0 30px;
-}
-.user_row:nth-child(4) {
-    margin-top: 1.5em;
-    flex: 2 0 120px;
-}
-.user_row:nth-child(5) {
-    flex: 1 0 220px;
-}
-.user_border {
-    border-left: 3px dashed black;
-    height: 12em;
-
-}
-.user_row >  {
-    margin-bottom: 1.5em;
-}
-
- > img {
-    width: 1.5em;
-    height: 1.5em;
-}
-.card-body > a {
-    float: right;
-}
-
-/* -------------------------------------------------------mydetail------------------------------------------------------------------ */
-td>a>img{
-    width: 12em;
-    height: 12em;
-}
-.mydetail_h2{
-    margin-top: 0.5em;
-    margin-bottom:1em; 
-}
 /* ----------------------------------------------------basket------------------------------------------------------------------- */
 
 .option_button{

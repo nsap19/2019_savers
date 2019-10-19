@@ -25,3 +25,6 @@ p{
 body{
     font-family: 'Nanum Gothic', sans-serif;
 }
+.single-slider{
+    background-image: url(static/main/img/eco.jpg);
+}

@@ -1,0 +1,31 @@
+[
+    
+    {
+    "model": "mypage.orderstatus",
+    "pk": 1,
+    "fields": {
+        "order_status": "주문 완료"
+        }
+    },
+    {
+    "model": "mypage.orderstatus",
+    "pk":2,
+    "fields":{
+        "order_status": "배송준비"
+        }
+    },
+    {
+    "model": "mypage.orderstatus",
+    "pk":3,
+    "fields":{
+        "order_status": "발송"
+        }
+    },
+    {
+        "model": "mypage.orderstatus",
+        "pk":4,
+        "fields":{
+            "order_status": "배송 완료"
+            }
+    }
+]

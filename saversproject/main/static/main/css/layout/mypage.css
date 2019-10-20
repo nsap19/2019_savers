@@ -135,6 +135,11 @@ td>img{
 .btn{
     color: white;
 }
+
+td> a > img {
+    width: 12em;
+    height: 12em;
+}
 /* ----------------------------------------------------------------order------------------------------------------------------- */
 @media (min-width: 992px) {
     .order .section-padding {

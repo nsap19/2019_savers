@@ -85,16 +85,17 @@ def order_all(request):
         u_basket = baskets.filter(user_id=current_user_pk)
         user_order = UserOrder.objects
 
+        order = UserOrder()
+        order.user = User(current_user_pk)
+
         for b in u_basket:
                 b.status = 1
+                order.ordered_product = b.product
+                order.amount = b.quantity
                 b.save()
-
-        order = UserOrder()
-        # user = User(1)
-        order.user = User(current_user_pk)
-        order.ordered_product = u_basket.product_id
-        order.amount = 0
-        order.order_status =1
                 
+        order.order_status =1
         order.save()
+
+        return render(request, 'mypage/order.html')
         

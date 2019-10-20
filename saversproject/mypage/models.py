@@ -34,6 +34,9 @@ class Donation(models.Model):
 class OrderStatus(models.Model):
     order_status = models.CharField(max_length=45)
 
+    def __str__(self):
+        return self.order_status
+        
     class Meta:
         managed = True
         # db_table = 'order_status'
@@ -44,7 +47,8 @@ class UserOrder(models.Model):
     ordered_product = models.ForeignKey('product.Product', on_delete=models.CASCADE)
     amount = models.IntegerField() #수량
     date = models.DateTimeField()
-    order_status = models.ForeignKey(OrderStatus, on_delete=models.CASCADE) #주문상태
+    order_status = models.ForeignKey('OrderStatus', on_delete=models.CASCADE) #주문상태
+
 
     class Meta:
         managed = True

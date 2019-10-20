@@ -46,11 +46,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for basket in u_basket %}
                                 <tr>
-                                    <td>빨대</td>
-                                    <td>1</td>
-                                    <td>10.20</td>
+                                    <td>{{basket.product.name}} ({{basket.p_option}})</td>
+                                    <td>{{basket.quantity}}</td>
+                                    <td>{{basket.created_at}}</td>
                                 </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                         <br>

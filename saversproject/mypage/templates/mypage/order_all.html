@@ -1,4 +1,4 @@
-<!-- {%extends 'main/layout.html'%}
+{%extends 'main/layout.html'%}
 {%load staticfiles%}
 {%block content%}
     <link rel="stylesheet" href="{%static 'main/css/layout/mypage.css'%}">
@@ -23,30 +23,30 @@
                                         </thead>
                                         <!-- 주문 목록 시작 -->
                                         <tbody>
-                                            {% for uo in user_order %}
+                                            {{u_order}}
+                                            {% for uo in u_order %}
                                             {{uo}}
                                             <tr>
                                                 <!-- 주문일자 -->
                                                 <th scope="row">{{uo.date}}</th>
                                                 <!-- 제품이미지 -->
                                                 <td>
-                                                    <img src="{{uo.product.image}}"></td>
+                                                    <img src="{{uo.ordered_product.image.url}}"></td>
                                                     <!-- 제품정보 -->
                                                     <td>
-                                                        <strong>{{u_basket.product.option}}</strong>
+                                                        <strong>{{uo.p_option}}</strong>
                                                         </td>
                                                         <!-- 제품수량 -->
                                                         <td>
-                                                            <strong>{{u_basket.product.quantity}}</strong>
+                                                            <strong>{{uo.amount}}</strong>
                                                         </td>
                                                         <!-- 가격 -->
                                                         <td>
-                                                            <strong>{{uo.product.price}}</strong>
+                                                            <strong>{{uo.ordered_product.price}}</strong>
                                                         </td>
                                                     </tr>
                                                 </tbody>
                                                 <!-- 주문목록끝 -->
-                                                {% endfor %}
                                             </table>
                                             <hr>
                                                 <!-- 주문정보 -->
@@ -60,21 +60,20 @@
                                                                     <!-- user_name -->
                                                                     <th class="order-text" scope="row">이름</th>
                                                                     <td>
-                                                                        <input class="order_input" placeholder="" value="" type="text"></td>
+                                                                        {{user.name}}</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <!-- user_id -->
                                                                         <th class="order-text" scope="row">아이디</th>
                                                                         <td>
-                                                                            <input class="order_input" placeholder="" value="" type="text"></td>
+                                                                            {{user.email}}</td>
                                                                         </tr>
                                                                                 <tr class="">
                                                                                     <!-- user_address -->
                                                                                     <th class="order-text" scope="row">주소
                                                                                     </th>
                                                                                     <td>
-
-                                                                                        <input class="order_input" value="" type="text">
+                                                                                        {{user.address}}
                                                                                             <br></tr>
 
                                                                                             <tr class="">
@@ -82,7 +81,7 @@
                                                                                                 <th class="order-text" scope="row">휴대전화</th>
 
                                                                                                 <td>
-                                                                                                    <input class="order_input" value="" type="text"></td>
+                                                                                                   {{user.tel}}</td>
                                                                                                 </tr>
 
                                                                                             </tbody>
@@ -102,14 +101,14 @@
                                                                                                             </thead>
                                                                                                             <tbody>
                                                                                                                 <tr>
-                                                                                                                    <th scope="row">000원</th>
+                                                                                                                    <th scope="row">{{uo.ordered_product.price}}</th>
                                                                                                                 </tr>
                                                                                                             </tbody>
                                                                                                         </table>
                                                                                                         <!-- 주문하기버튼 -->
-                                                                                                        <a class="btn btn-primary" style="margin-left: 73em;" href="{% url 'order'%}">
+                                                                                                        <a class="btn btn-primary" style="margin-left: 73em;" href="{% url 'order_complete'%}">
                                                                                                             <strong>
-                                                                                                                주문하기</strong>
+                                                                                                                확인</strong>
                                                                                                         </a>
                                                                                                     </div>
                                                                                                 </div>
@@ -119,5 +118,6 @@
                                                                                 </div>
                                                                             </section>
                                                                         </div>
+                                                                        {% endfor %}
 
-                                                                        {%endblock%} -->
+                                                                        {%endblock%}

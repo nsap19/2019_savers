@@ -1,0 +1,38 @@
+{%extends 'main/layout.html'%}
+{%load staticfiles%}
+{%load mathfilters%}
+{%block content%}
+<link rel="stylesheet" href="{%static 'main/css/layout/mypage.css'%}">
+<!-- mypage 시작-->
+<div class="mypage">
+    <section id="gtco-welcome" class="bg-white section-padding">
+        <div class="container_mypage">
+            <div class="section-content">
+                <div class="row">
+                    <div class="pl-lg-5 ml-md-5">
+                        <div class="container_mypage2">
+                            <h2 class="mydetail_h2">주문 완료</h2>
+                            <table class="table">
+                                <thead>
+                                
+                                </thead>
+                                
+                                
+                                <tbody>
+                                        <tr>
+                                                <td colspan="12">
+                                                    <center><h1>주문이 완료되었습니다</h1></center>
+                                                </td>
+                                            </tr>
+                                    </tbody>
+
+                            </table>
+
+                            <a class="btn btn-primary" style="margin-left: 73em;" href="{% url 'mypage'%}">
+                                    <strong>
+                                        마이페이지로 가기</strong>
+                                </a>
+                            <br><br>
+
+                        
+{%endblock%}

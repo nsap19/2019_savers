@@ -48,7 +48,7 @@ class UserOrder(models.Model):
     amount = models.IntegerField() #수량
     date = models.DateTimeField()
     order_status = models.ForeignKey('OrderStatus', on_delete=models.CASCADE) #주문상태
-
+    p_option = models.CharField(max_length=200) #상품 옵션
 
     class Meta:
         managed = True

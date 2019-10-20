@@ -9,8 +9,9 @@ from . import views
 urlpatterns = [
     path('',views.mypage,name="mypage"),
     path('mydetail/',views.mydetail,name="mydetail"),
-    path('order/',views.order,name="order"),
-    path('order_all', views.order_all, name="order_all"),
+    path('ordercheck/',views.ordercheck,name="ordercheck"),
+    path('order_all/', views.order_all, name="order_all"),
+    path('order_complete/', views.order_complete, name="order_complete"),
     # path('<int:p_id>/basket', views.basket, name="basket"), 
     path('basket/<int:pk>/add', views.addbasket, name="addbasket"), 
     path('basket', views.basket, name = 'basket'),
